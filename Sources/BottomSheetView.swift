@@ -13,11 +13,11 @@ public final class BottomSheetView: UIView {
 
   public var layout = DefaultBottomSheetLayout()
   private var currentPosition: BottomSheetPosition = .tip
-//  {
-//    didSet {
-//      move(to: currentPosition)
-//    }
-//  }
+  //  {
+  //    didSet {
+  //      move(to: currentPosition)
+  //    }
+  //  }
   public var appearance = BottomSheetAppearance() {
     didSet {
       setupView()
@@ -30,12 +30,12 @@ public final class BottomSheetView: UIView {
 
   // MARK: - UI
 
-  private var parentViewController: UIViewController! {
+  private weak var parentViewController: UIViewController! {
     willSet {
       configureBottomSheet(newValue)
     }
   }
-  private var contentViewController: UIViewController? {
+  private weak var contentViewController: UIViewController? {
     willSet {
       /// configureContentView 내부에서 parentView의 safeArea 값들을 가져오는 게 있는데
       /// 메인 쓰레드에서 가져오지 않으면 정확한 값을 가져오지 못하기 때문에 메인 쓰레드에서 함수 호출.
@@ -135,22 +135,25 @@ public final class BottomSheetView: UIView {
     switch sender.state {
     case .changed:
       defer {
-
+        setNeedsLayout()
+        sender.setTranslation(.zero, in: self)
       }
 
       let isMinimumPositionAndDown = (frame.height <= layout.bottomSheetPositions[.tip]?.height ?? 0) && (panVelocity >= 0)
       let isMaximumPositionAndUp = frame.height > parentViewController.view.frame.height - parentViewController.view.safeAreaInsets.top
 
-      if isMinimumPositionAndDown {
+      guard isMinimumPositionAndDown == false else {
         topConstraint.constant += translation.y * 0.5
-      } else if isMaximumPositionAndUp {
-        topConstraint.constant += translation.y * 0.2
-      } else {
-        topConstraint.constant += translation.y
+        return
       }
 
-      setNeedsLayout()
-      sender.setTranslation(.zero, in: self)
+      guard isMaximumPositionAndUp == false else {
+        topConstraint.constant += translation.y * 0.2
+        return
+      }
+
+      topConstraint.constant += translation.y
+
     case .ended:
       /// 👆 빠르게 위로 올림
       if panVelocity < -500 {
@@ -164,13 +167,11 @@ public final class BottomSheetView: UIView {
         return
       }
 
-      if frame.height >= parentViewController.view.frame.height * layout.thresholdFraction {
-        /// 화면의 세로를 기준으로 layout.thresholdFraction 지점에서 위쪽에 있는 상태에서 놓음
-        move(to: .full)
-      } else {
-        /// 화면의 세로를 기준으로 layout.thresholdFraction 지점에서 아래에 있는 상태에서 놓음
-        move(to: .tip)
-      }
+      let isUpperOfThreasholdFraction = frame.height >= parentViewController.view.frame.height * layout.thresholdFraction
+
+      let destination: BottomSheetPosition = isUpperOfThreasholdFraction ? .full : .tip
+      move(to: destination)
+
     default:
       break
     }
