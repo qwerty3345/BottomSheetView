@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '10.0'
+
+target 'BottomSheetView_Example' do
+  pod 'BottomSheetView', :path => '../'
+
+  target 'BottomSheetView_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
