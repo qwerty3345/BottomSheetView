@@ -9,5 +9,6 @@ import Foundation
 
 public enum BottomSheetPosition {
   case full
+  case half
   case tip
 }

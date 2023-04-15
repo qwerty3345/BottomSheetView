@@ -18,7 +18,12 @@ public final class BottomSheetView: UIView {
     }
   }
 
-  private var currentPosition: BottomSheetPosition = .tip
+  /// Sets the BottomSheet Position is enabling tip mode.
+  /// If set to `false`, only two modes, full and middle, are set
+  /// default value is `true`
+  public var isTipEnabled: Bool = true
+
+  private var currentPosition: BottomSheetPosition = .half
 
   private var isContentScrollViewScrolling = false
   private var capturedContentScrollViewOffsetY: CGFloat = .zero
@@ -137,7 +142,10 @@ public final class BottomSheetView: UIView {
         sender.setTranslation(.zero, in: self)
       }
 
-      let isMinimumPositionAndDown = (frame.height <= layout.bottomSheetPositions[.tip]?.height ?? 0) && (panVelocity >= 0)
+      let minimumPositionStandard: BottomSheetPosition = isTipEnabled ? .tip : .half
+      let height = layout.anchoring(of: minimumPositionStandard).height(with: parentViewController)
+
+      let isMinimumPositionAndDown = (frame.height <= height) && (panVelocity >= 0)
       let isMaximumPositionAndUp = frame.height > parentViewController.view.frame.height - parentViewController.view.safeAreaInsets.top
 
       guard isMinimumPositionAndDown == false else {
@@ -153,6 +161,11 @@ public final class BottomSheetView: UIView {
       topConstraint.constant += translation.y
 
     case .ended:
+      if currentPosition == .half && panVelocity > 500 {
+        move(to: .tip)
+        return
+      }
+
       // 👆 Panning up quickly
       if panVelocity < -500 {
         move(to: .full)
@@ -161,13 +174,13 @@ public final class BottomSheetView: UIView {
 
       // 👇 Panning down quickly
       if panVelocity > 500 {
-        move(to: .tip)
+        move(to: .half)
         return
       }
 
       let isUpperOfThreasholdFraction = frame.height >= parentViewController.view.frame.height * layout.thresholdFraction
 
-      let destination: BottomSheetPosition = isUpperOfThreasholdFraction ? .full : .tip
+      let destination: BottomSheetPosition = isUpperOfThreasholdFraction ? .full : .half
       move(to: destination)
 
     default:
@@ -233,12 +246,12 @@ public final class BottomSheetView: UIView {
 
   public func move(to position: BottomSheetPosition) {
     switch position {
-    case .tip:
-      moveToTip()
-      break
     case .full:
       moveToFull()
-      break
+    case .half:
+      moveToHalf()
+    case .tip:
+      moveToTip()
     }
   }
 
@@ -274,12 +287,12 @@ public final class BottomSheetView: UIView {
     parentViewController.view.addSubview(self)
     translatesAutoresizingMaskIntoConstraints = false
 
-    topConstraint = self.topAnchor.constraint(
+    topConstraint = topAnchor.constraint(
       equalTo: parentViewController.view.topAnchor,
-      constant: abs(layout.bottomSheetPositions[.tip]!.height! - parentViewController.view.frame.height))
+      constant: layout.anchoring(of: .half).topAnchor(with: parentViewController))
 
     NSLayoutConstraint.activate([
-      topConstraint!,
+      topConstraint,
       leadingAnchor.constraint(equalTo: parentViewController.view.leadingAnchor),
       trailingAnchor.constraint(equalTo: parentViewController.view.trailingAnchor),
       bottomAnchor.constraint(equalTo: parentViewController.view.bottomAnchor),
@@ -304,10 +317,30 @@ public final class BottomSheetView: UIView {
     currentPosition = .full
   }
 
+  private func moveToHalf() {
+    contentScrollView?.isScrollEnabled = false
+
+    let topAnchor = layout.anchoring(of: .half).topAnchor(with: parentViewController)
+
+//    topConstraint.constant = abs(layout.height(of: .half).height - parentViewController.view.frame.height)
+    topConstraint.constant = topAnchor
+
+    UIView.animateWithSpring(
+      animation: {
+        self.parentViewController.view.layoutIfNeeded()
+      },
+      completion: { [weak self] _ in
+        self?.delegate?.didMove(to: .half)
+      })
+
+    delegate?.willMove(to: .half)
+    currentPosition = .half
+  }
+
   private func moveToTip() {
     contentScrollView?.isScrollEnabled = false
 
-    topConstraint.constant = abs(layout.bottomSheetPositions[.tip]!.height! - parentViewController.view.frame.height)
+    topConstraint.constant = layout.anchoring(of: .tip).topAnchor(with: parentViewController) + parentViewController.view.safeAreaInsets.bottom
 
     UIView.animateWithSpring(
       animation: {
