@@ -13,7 +13,7 @@ public struct BottomSheetAppearance {
   public var bottomSheetCornerRadius: CGFloat = 20
 
   /// Grabber
-  public var grabberBackgroundColor: UIColor = UIColor.lightGray.withAlphaComponent(0.5)
+  public var grabberBackgroundColor: UIColor = UIColor.lightGray.withAlphaComponent(0.7)
   public var grabberWidth: CGFloat = 32
   public var grabberHeight: CGFloat = 6
 }

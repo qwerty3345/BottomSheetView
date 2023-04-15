@@ -78,6 +78,7 @@ public final class BottomSheetView: UIView {
 
   private func setupGrabberContainerLayout() {
     addSubview(grabberContainerView)
+    grabberContainerView.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
       grabberContainerView.topAnchor.constraint(equalTo: topAnchor),
       grabberContainerView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -88,9 +89,10 @@ public final class BottomSheetView: UIView {
 
   private func setupGrabberLayout() {
     grabberContainerView.addSubview(grabberView)
+    grabberView.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
-      grabberView.centerXAnchor.constraint(equalTo: centerXAnchor),
-      grabberView.centerYAnchor.constraint(equalTo: centerYAnchor),
+      grabberView.centerXAnchor.constraint(equalTo: grabberContainerView.centerXAnchor),
+      grabberView.centerYAnchor.constraint(equalTo: grabberContainerView.centerYAnchor),
       grabberView.widthAnchor.constraint(equalToConstant: appearance.grabberWidth),
       grabberView.heightAnchor.constraint(equalToConstant: appearance.grabberHeight)
     ])
