@@ -1,0 +1,6 @@
+framework module BottomSheetView {
+  umbrella header "BottomSheetView-umbrella.h"
+
+  export *
+  module * { export * }
+}

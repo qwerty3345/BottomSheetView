@@ -1,0 +1,22 @@
+{
+  "name": "BottomSheetView",
+  "version": "0.1.0",
+  "summary": "A short description of BottomSheetView.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/qwerty3345/BottomSheetView",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "qwerty3345": "qwerty3345@naver.com"
+  },
+  "source": {
+    "git": "https://github.com/qwerty3345/BottomSheetView.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "Sources/**/*"
+}

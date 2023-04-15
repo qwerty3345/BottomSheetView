@@ -7,18 +7,43 @@
 //
 
 import UIKit
+import MapKit
+
+import BottomSheetView
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+  // MARK: - Constants
+
+  enum Metric { }
+
+  // MARK: - Properties
+
+  // MARK: - UI
+  @IBOutlet weak var mapView: MKMapView!
+
+  let bottomSheetView = BottomSheetView(frame: .zero)
+
+  // MARK: - LifeCycle
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    setup()
+  }
+
+  // MARK: - Public
+
+  // MARK: - Private
+
+  private func setup() {
+    setupLayout()
+  }
+
+  private func setupLayout() {
+    view.addSubview(bottomSheetView)
+    bottomSheetView.configure(parentVC: self, contentVC: ViewController())
+  }
 
 }
 
