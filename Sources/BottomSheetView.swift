@@ -161,27 +161,33 @@ public final class BottomSheetView: UIView {
       topConstraint.constant += translation.y
 
     case .ended:
-      if currentPosition == .half && panVelocity > 500 {
-        move(to: .tip)
+      let isPanningUpWithSpeed = panVelocity < -500
+      let isPanningDownWithSpeed = panVelocity > 500
+
+      if isPanningDownWithSpeed {
+        let destination: BottomSheetPosition = isTipEnabled && (currentPosition == .half) ? .tip : .half
+        move(to: destination)
         return
       }
 
-      // 👆 Panning up quickly
-      if panVelocity < -500 {
-        move(to: .full)
+      if isPanningUpWithSpeed {
+        let destination: BottomSheetPosition = currentPosition == .tip ? .half : .full
+        move(to: destination)
         return
       }
 
-      // 👇 Panning down quickly
-      if panVelocity > 500 {
+      guard let closestDestination = BottomSheetPosition.allCases.min(by: {
+        abs(layout.anchoring(of: $0).height(with: parentViewController) - frame.height)
+        < abs(layout.anchoring(of: $1).height(with: parentViewController) - frame.height)
+      }) else { return }
+
+
+      if isTipEnabled == false && closestDestination == .tip {
         move(to: .half)
         return
       }
 
-      let isUpperOfThreasholdFraction = frame.height >= parentViewController.view.frame.height * layout.thresholdFraction
-
-      let destination: BottomSheetPosition = isUpperOfThreasholdFraction ? .full : .half
-      move(to: destination)
+      move(to: closestDestination)
 
     default:
       break

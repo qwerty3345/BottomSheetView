@@ -9,7 +9,7 @@ import UIKit
 
 public protocol BottomSheetLayout {
   func anchoring(of position: BottomSheetPosition) -> BottomSheetAnchoring
-  var thresholdFraction: CGFloat { get }
+//  var thresholdFraction: CGFloat { get }
 }
 
 public enum BottomSheetAnchoring {
