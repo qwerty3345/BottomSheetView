@@ -12,17 +12,13 @@ public final class BottomSheetView: UIView {
   public var delegate: BottomSheetViewDelegate?
 
   public var layout = DefaultBottomSheetLayout()
-  private var currentPosition: BottomSheetPosition = .tip
-  //  {
-  //    didSet {
-  //      move(to: currentPosition)
-  //    }
-  //  }
   public var appearance = BottomSheetAppearance() {
     didSet {
       setupView()
     }
   }
+
+  private var currentPosition: BottomSheetPosition = .tip
 
   private var isContentScrollViewScrolling = false
   private var capturedContentScrollViewOffsetY: CGFloat = .zero
@@ -123,7 +119,7 @@ public final class BottomSheetView: UIView {
   // MARK: - Setup Gestures
 
   private func setupGesture() {
-    let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(didPan(_:)))
+    let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(didPan))
     addGestureRecognizer(panGestureRecognizer)
   }
 
@@ -155,13 +151,13 @@ public final class BottomSheetView: UIView {
       topConstraint.constant += translation.y
 
     case .ended:
-      /// 👆 빠르게 위로 올림
+      // 👆 Panning up quickly
       if panVelocity < -500 {
         move(to: .full)
         return
       }
 
-      /// 👇 빠르게 아래로 내림
+      // 👇 Panning down quickly
       if panVelocity > 500 {
         move(to: .tip)
         return
@@ -247,42 +243,44 @@ public final class BottomSheetView: UIView {
 
   // MARK: - Private
 
-  private func configureContentView(_ contentVC: UIViewController?) {
-    guard let contentVC else { return }
-    guard let contentScrollView = contentVC.view.firstView(ofType: UIScrollView.self) else { return }
+  /// Check and configure If contentViewController is/has scrollView
+  private func configureContentView(_ contentViewController: UIViewController?) {
+    // check and type casting contentViewController is/has scrollView
+    guard let contentViewController,
+          let contentScrollView = contentViewController.view.firstView(ofType: UIScrollView.self) else { return }
     self.contentScrollView = contentScrollView
 
     contentScrollView.isScrollEnabled = false
-    contentScrollView.panGestureRecognizer.addTarget(self, action: #selector(didPanContentScrollView(_:)))
+    contentScrollView.panGestureRecognizer.addTarget(self, action: #selector(didPanContentScrollView))
 
-    addSubview(contentVC.view)
-    contentVC.view.translatesAutoresizingMaskIntoConstraints = false
+    addSubview(contentViewController.view)
+    contentViewController.view.translatesAutoresizingMaskIntoConstraints = false
 
     /// 정확한 safeArea의 값을 가져오기 위해서 Main thread 에서 constraint 잡음.
     DispatchQueue.main.async { [weak self] in
       guard let self else { return }
       NSLayoutConstraint.activate([
-        contentVC.view.topAnchor.constraint(equalTo: self.grabberContainerView.bottomAnchor),
-        contentVC.view.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-        contentVC.view.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-        contentVC.view.heightAnchor.constraint(equalToConstant: self.parentViewController.view.heightWithoutSafeAreas)
+        contentViewController.view.topAnchor.constraint(equalTo: self.grabberContainerView.bottomAnchor),
+        contentViewController.view.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+        contentViewController.view.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+        contentViewController.view.heightAnchor.constraint(equalToConstant: self.parentViewController.view.heightWithoutSafeAreas)
       ])
     }
   }
 
-  private func configureBottomSheet(_ parentVC: UIViewController) {
-    parentVC.view.addSubview(self)
+  private func configureBottomSheet(_ parentViewController: UIViewController) {
+    parentViewController.view.addSubview(self)
     translatesAutoresizingMaskIntoConstraints = false
 
     topConstraint = self.topAnchor.constraint(
-      equalTo: parentVC.view.topAnchor,
-      constant: abs(layout.bottomSheetPositions[.tip]!.height! - parentVC.view.frame.height))
+      equalTo: parentViewController.view.topAnchor,
+      constant: abs(layout.bottomSheetPositions[.tip]!.height! - parentViewController.view.frame.height))
 
     NSLayoutConstraint.activate([
       topConstraint!,
-      leadingAnchor.constraint(equalTo: parentVC.view.leadingAnchor),
-      trailingAnchor.constraint(equalTo: parentVC.view.trailingAnchor),
-      bottomAnchor.constraint(equalTo: parentVC.view.bottomAnchor),
+      leadingAnchor.constraint(equalTo: parentViewController.view.leadingAnchor),
+      trailingAnchor.constraint(equalTo: parentViewController.view.trailingAnchor),
+      bottomAnchor.constraint(equalTo: parentViewController.view.bottomAnchor),
     ])
   }
 
