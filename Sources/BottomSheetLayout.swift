@@ -9,7 +9,6 @@ import UIKit
 
 public protocol BottomSheetLayout {
   func anchoring(of position: BottomSheetPosition) -> BottomSheetAnchoring
-//  var thresholdFraction: CGFloat { get }
 }
 
 public enum BottomSheetAnchoring {
@@ -43,9 +42,7 @@ public struct DefaultBottomSheetLayout: BottomSheetLayout {
     case .half:
       return BottomSheetAnchoring.absolute(320)
     case .tip:
-      return BottomSheetAnchoring.fractional(0.2)
+      return BottomSheetAnchoring.absolute(100)
     }
   }
-
-  public var thresholdFraction: CGFloat = 0.6
 }

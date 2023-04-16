@@ -251,14 +251,35 @@ public final class BottomSheetView: UIView {
   }
 
   public func move(to position: BottomSheetPosition) {
-    switch position {
-    case .full:
-      moveToFull()
-    case .half:
-      moveToHalf()
-    case .tip:
-      moveToTip()
-    }
+    contentScrollView?.isScrollEnabled = position == .full
+
+    let topAnchorWithSafeArea: CGFloat = {
+      let topAnchor = layout.anchoring(of: position).topAnchor(with: parentViewController)
+
+      switch position {
+      case .full:
+        let topSafeAreaInset = parentViewController.view.safeAreaInsets.top
+        return topAnchor + topSafeAreaInset
+      case .half:
+        return topAnchor
+      case .tip:
+        let bottomSafeAreaInset = parentViewController.view.safeAreaInsets.bottom
+        return topAnchor + bottomSafeAreaInset
+      }
+    }()
+
+    topConstraint.constant = topAnchorWithSafeArea
+
+    UIView.animateWithSpring(
+      animation: {
+        self.parentViewController.view.layoutIfNeeded()
+      },
+      completion: { [weak self] _ in
+        self?.delegate?.didMove(to: position)
+      })
+
+    delegate?.willMove(to: position)
+    currentPosition = position
   }
 
 
@@ -303,60 +324,5 @@ public final class BottomSheetView: UIView {
       trailingAnchor.constraint(equalTo: parentViewController.view.trailingAnchor),
       bottomAnchor.constraint(equalTo: parentViewController.view.bottomAnchor),
     ])
-  }
-
-  private func moveToFull() {
-    contentScrollView?.isScrollEnabled = true
-
-    let topSafeAreaInset = parentViewController.view.safeAreaInsets.top
-    topConstraint.constant = topSafeAreaInset
-
-    UIView.animateWithSpring(
-      animation: {
-        self.parentViewController.view.layoutIfNeeded()
-      },
-      completion: { [weak self] _ in
-        self?.delegate?.didMove(to: .full)
-      })
-
-    delegate?.willMove(to: .full)
-    currentPosition = .full
-  }
-
-  private func moveToHalf() {
-    contentScrollView?.isScrollEnabled = false
-
-    let topAnchor = layout.anchoring(of: .half).topAnchor(with: parentViewController)
-
-//    topConstraint.constant = abs(layout.height(of: .half).height - parentViewController.view.frame.height)
-    topConstraint.constant = topAnchor
-
-    UIView.animateWithSpring(
-      animation: {
-        self.parentViewController.view.layoutIfNeeded()
-      },
-      completion: { [weak self] _ in
-        self?.delegate?.didMove(to: .half)
-      })
-
-    delegate?.willMove(to: .half)
-    currentPosition = .half
-  }
-
-  private func moveToTip() {
-    contentScrollView?.isScrollEnabled = false
-
-    topConstraint.constant = layout.anchoring(of: .tip).topAnchor(with: parentViewController) + parentViewController.view.safeAreaInsets.bottom
-
-    UIView.animateWithSpring(
-      animation: {
-        self.parentViewController.view.layoutIfNeeded()
-      },
-      completion: { [weak self] _ in
-        self?.delegate?.didMove(to: .tip)
-      })
-
-    delegate?.willMove(to: .tip)
-    currentPosition = .tip
   }
 }

@@ -103,9 +103,8 @@
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				607FACD71AFB9204008FA782 /* ViewController.swift */,
-				B40F83E829EADE7700A1F3A5 /* CakeShopListViewController.swift */,
-				607FACDC1AFB9204008FA782 /* Images.xcassets */,
+				B40F83EB29EB03B000A1F3A5 /* View */,
+				B40F83EA29EB03AC00A1F3A5 /* Controller */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
 			name = "Example for BottomSheetView";
@@ -115,6 +114,7 @@
 		607FACD31AFB9204008FA782 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACD41AFB9204008FA782 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -154,6 +154,22 @@
 				22776E5AD06230DB3DD9619F /* Pods_BottomSheetView_Tests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B40F83EA29EB03AC00A1F3A5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				B40F83E829EADE7700A1F3A5 /* CakeShopListViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		B40F83EB29EB03B000A1F3A5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
