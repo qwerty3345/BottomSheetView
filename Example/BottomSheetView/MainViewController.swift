@@ -57,7 +57,7 @@ class MainViewController: UIViewController {
   }
 
   private func setupBottomSheet() {
-    bottomSheetView.configure(parentVC: self, contentVC: contentViewContoller)
+    bottomSheetView.configure(parentViewController: self, contentViewController: contentViewContoller)
   }
 
 }

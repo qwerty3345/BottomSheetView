@@ -16,4 +16,7 @@ public struct BottomSheetAppearance {
   public var grabberBackgroundColor: UIColor = UIColor.lightGray.withAlphaComponent(0.7)
   public var grabberWidth: CGFloat = 32
   public var grabberHeight: CGFloat = 6
+
+  /// Settings
+  public var isContentScrollViewBouncingWhenScrollDown = true
 }
