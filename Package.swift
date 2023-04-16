@@ -18,9 +18,6 @@ let package = Package(
         .target(
             name: "BottomSheetView",
             dependencies: [], path: "Sources/"),
-        .testTarget(
-            name: "BottomSheetViewTests",
-            dependencies: ["BottomSheetView"]),
     ],
     swiftLanguageVersions: [.v5]
 )

@@ -17,8 +17,6 @@ final class ListViewController: UICollectionViewController {
     setup()
   }
 
-  // MARK: - Public
-
   // MARK: - Private
 
   private func setup() {
@@ -33,6 +31,7 @@ final class ListViewController: UICollectionViewController {
   }
 
 }
+
 
 //MARK: - UICollectionViewDataSource
 

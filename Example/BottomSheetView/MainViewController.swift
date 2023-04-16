@@ -13,13 +13,6 @@ import BottomSheetView
 
 class MainViewController: UIViewController {
 
-
-  // MARK: - Constants
-
-  enum Metric { }
-
-  // MARK: - Properties
-
   // MARK: - UI
 
   let bottomSheetView = BottomSheetView()

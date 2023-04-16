@@ -17,8 +17,6 @@ final class GridViewController: UICollectionViewController {
     setup()
   }
 
-  // MARK: - Public
-
   // MARK: - Private
 
   private func setup() {

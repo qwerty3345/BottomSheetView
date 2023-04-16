@@ -72,6 +72,7 @@ public final class BottomSheetView: UIView {
     setupGesture()
   }
 
+
   // MARK: - Setup Layout
 
   private func setupLayout() {
@@ -100,6 +101,7 @@ public final class BottomSheetView: UIView {
       grabberView.heightAnchor.constraint(equalToConstant: appearance.grabberHeight)
     ])
   }
+
 
   // MARK: - Setup Views
 
