@@ -11,7 +11,7 @@ import MapKit
 
 import BottomSheetView
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
 
 
   // MARK: - Constants
@@ -25,7 +25,11 @@ class ViewController: UIViewController {
   let bottomSheetView = BottomSheetView(frame: .zero)
 
   let mapView = MKMapView()
-  let cakeShopListViewController = CakeShopListViewController()
+
+  /// ✨ Examples : you can unmark line to show how certain style works
+  let contentViewContoller = ListViewController(collectionViewLayout: UICollectionViewFlowLayout())
+//  let contentViewContoller = GridViewController(collectionViewLayout: UICollectionViewFlowLayout())
+//  let contentViewContoller = UIViewController()
 
   // MARK: - LifeCycle
 
@@ -34,13 +38,10 @@ class ViewController: UIViewController {
     setup()
   }
 
-  // MARK: - Public
-
   // MARK: - Private
 
   private func setup() {
     setupLayout()
-    setupStyle()
     setupBottomSheet()
   }
 
@@ -55,12 +56,8 @@ class ViewController: UIViewController {
     ])
   }
 
-  private func setupStyle() {
-    view.backgroundColor = .lightGray
-  }
-
   private func setupBottomSheet() {
-    bottomSheetView.configure(parentVC: self, contentVC: cakeShopListViewController)
+    bottomSheetView.configure(parentVC: self, contentVC: contentViewContoller)
   }
 
 }
