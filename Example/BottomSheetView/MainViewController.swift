@@ -22,7 +22,7 @@ class MainViewController: UIViewController {
 
   // MARK: - UI
 
-  let bottomSheetView = BottomSheetView(frame: .zero)
+  let bottomSheetView = BottomSheetView()
 
   let mapView = MKMapView()
 

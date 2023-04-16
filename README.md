@@ -11,6 +11,8 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
+iOS 11.0 +
+
 ## Installation
 
 BottomSheetView is available through [CocoaPods](https://cocoapods.org). To install
@@ -22,7 +24,12 @@ pod 'BottomSheetView'
 
 ## Author
 
-qwerty3345, qwerty3345@naver.com
+Mason Kim, qwerty3345@naver.com
+
+## Special Thanks to
+> Helper
+
+Wallaby, avocado34.131@gmail.com
 
 ## License
 
