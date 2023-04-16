@@ -31,6 +31,11 @@ class MainViewController: UIViewController {
     setup()
   }
 
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    bottomSheetView.move(to: .tip)
+    super.touchesBegan(touches, with: event)
+  }
+
   // MARK: - Private
 
   private func setup() {
