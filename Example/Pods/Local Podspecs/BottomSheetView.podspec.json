@@ -1,7 +1,7 @@
 {
   "name": "BottomSheetView",
   "version": "0.1.0",
-  "summary": "A short description of BottomSheetView.",
+  "summary": "📚Library for easy use of UIKit BottomSheet📱",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/qwerty3345/BottomSheetView",
   "license": {
@@ -9,7 +9,7 @@
     "file": "LICENSE"
   },
   "authors": {
-    "qwerty3345": "qwerty3345@naver.com"
+    "Mason Kim": "qwerty3345@naver.com"
   },
   "source": {
     "git": "https://github.com/qwerty3345/BottomSheetView.git",
@@ -18,5 +18,6 @@
   "platforms": {
     "ios": "11.0"
   },
-  "source_files": "Sources/**/*"
+  "source_files": "Sources/**/*",
+  "frameworks": "UIKit"
 }

@@ -7,38 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		015C8243FF538F7F3328B73099B060C9 /* BottomSheetPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D38842C959CC53C8482EAFF0674A3 /* BottomSheetPosition.swift */; };
 		0727C1B756CE1B1C3F046C0828252FA6 /* Pods-BottomSheetView_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BA80832F59CA67A66FF671D820270999 /* Pods-BottomSheetView_Tests-dummy.m */; };
 		16BA3A31F6185C194391EF69BBCF9EE8 /* Pods-BottomSheetView_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E65D2FC0B53C32113816D60505A41CA2 /* Pods-BottomSheetView_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1D1A48226E29D12C5E2295C6DE0DDF0D /* UIView+TypeFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E589C8A56424B04B182D9249EA65BD0 /* UIView+TypeFilter.swift */; };
-		2013B0B481C5C2BF72B76871878C63B0 /* BottomSheetPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D38842C959CC53C8482EAFF0674A3 /* BottomSheetPosition.swift */; };
+		5227B2882AED6225109D678DB539CF9D /* UIView+SpringAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FF21B95A20BF5766CA9ABFD69AD324 /* UIView+SpringAnimation.swift */; };
 		57A1D72931F6B5B0377FE67F64C144C3 /* Pods-BottomSheetView_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F602415224E58273D825916FCFE0C31 /* Pods-BottomSheetView_Example-dummy.m */; };
-		790C6FFDA1B52DE9B59BD05F7EFB71F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		7A2E22CD4EBAC03A2CD8E213BB85C574 /* BottomSheetLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A1C468BDC52A91847DD7845214D4B5 /* BottomSheetLayout.swift */; };
-		7DD303B596CCEC5FC72933DF5CCF286E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		8927802A2591CE4173D0186CA2BEACAC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		92516C36BB8C3D1600107E8F4BC6B0DE /* BottomSheetView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D06A0AFC44F801AE73DA307D8D2EA187 /* BottomSheetView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7DD303B596CCEC5FC72933DF5CCF286E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
+		86691411D23D62D492CA6D2558C0B915 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
+		8927802A2591CE4173D0186CA2BEACAC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
+		9196745E7D38EC7C2EA87D8710B40175 /* BottomSheetView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D06A0AFC44F801AE73DA307D8D2EA187 /* BottomSheetView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9B5A0533E85746F912FDE1068CE1E929 /* BottomSheetLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A1C468BDC52A91847DD7845214D4B5 /* BottomSheetLayout.swift */; };
+		A890D23A99D6C4E43850ED73735DFE95 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0824724D2A43FA4E1A9D9D15EA0E1C07 /* BottomSheetView.swift */; };
+		B6572809A211B7805342A4CA79A1C363 /* UIView+TypeFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E589C8A56424B04B182D9249EA65BD0 /* UIView+TypeFilter.swift */; };
+		BDE77F983A29B31B5395265DE20739E0 /* BottomSheetAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6D0C69564226FBC3B8D9A47B084E62 /* BottomSheetAppearance.swift */; };
 		C19B17438D3ECC1FEF79A5BD22385A39 /* Pods-BottomSheetView_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5044122604204662686F36D756C9BDBC /* Pods-BottomSheetView_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C1D488A29973132FC2B4B5E09C6D0A0A /* BottomSheetAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6D0C69564226FBC3B8D9A47B084E62 /* BottomSheetAppearance.swift */; };
-		E03FB747F5C618E701A1610639E89FCD /* UIView+SpringAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FF21B95A20BF5766CA9ABFD69AD324 /* UIView+SpringAnimation.swift */; };
-		F27ABF49AEC0F6567452E4B6476EC0E6 /* UIView+HeightWithoutSafeAreas.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B53489145AF5A09640BB677CA612B1 /* UIView+HeightWithoutSafeAreas.swift.swift */; };
-		F7A58BFCD251FC090486B79BAA9B7D01 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0824724D2A43FA4E1A9D9D15EA0E1C07 /* BottomSheetView.swift */; };
-		F839E4F1000B175A0B7CEFDD219AD550 /* BottomSheetView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8351E94D0B47B4FF580B89EC4C0A44D0 /* BottomSheetView-dummy.m */; };
+		CBDF75A568A0C2CAD0D8FED6D31B8674 /* BottomSheetView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8351E94D0B47B4FF580B89EC4C0A44D0 /* BottomSheetView-dummy.m */; };
+		D32188AC841CAD36CEE68BCB6D2FA387 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */; };
+		DB43B827C68937D762FD52CED6CEACF8 /* UIView+HeightWithoutSafeAreas.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B53489145AF5A09640BB677CA612B1 /* UIView+HeightWithoutSafeAreas.swift.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		09B3579946A48AE67FDE538A7D03BA20 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E2ED3658A8EE693C79FC0ED621886494;
-			remoteInfo = "Pods-BottomSheetView_Example";
-		};
 		20DA86FCA0EE620E57D731824B8C5B96 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = CF18D5DE8F30365884F4B8AF1B05F252;
 			remoteInfo = BottomSheetView;
+		};
+		96197906F6D03B8255A2CDC40F432583 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E2ED3658A8EE693C79FC0ED621886494;
+			remoteInfo = "Pods-BottomSheetView_Example";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -65,7 +66,6 @@
 		5F602415224E58273D825916FCFE0C31 /* Pods-BottomSheetView_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BottomSheetView_Example-dummy.m"; sourceTree = "<group>"; };
 		66DB1115F8571C947652214875DF7588 /* Pods-BottomSheetView_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BottomSheetView_Example-Info.plist"; sourceTree = "<group>"; };
 		673FE419D726E1F35AE9AFDF904322AE /* Pods-BottomSheetView_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BottomSheetView_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		8351E94D0B47B4FF580B89EC4C0A44D0 /* BottomSheetView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "BottomSheetView-dummy.m"; sourceTree = "<group>"; };
 		8C1D38842C959CC53C8482EAFF0674A3 /* BottomSheetPosition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BottomSheetPosition.swift; path = Sources/BottomSheetPosition.swift; sourceTree = "<group>"; };
 		91B52365904C1E5BC64870899B81117D /* Pods-BottomSheetView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BottomSheetView_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -77,14 +77,25 @@
 		C55A8F713176595262B7DF28A255087E /* BottomSheetView */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BottomSheetView; path = BottomSheetView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC1BC724390C3B328A0A52752A08A82E /* Pods-BottomSheetView_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-BottomSheetView_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		D06A0AFC44F801AE73DA307D8D2EA187 /* BottomSheetView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BottomSheetView-umbrella.h"; sourceTree = "<group>"; };
+		D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		D973B69BB5B7DCFE37A9B1626C009371 /* Pods-BottomSheetView_Tests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-BottomSheetView_Tests"; path = Pods_BottomSheetView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDB3CB788C99C06F2095CF548697052E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		DF6F8BB2ADE03F5F7B2FC52852130733 /* Pods-BottomSheetView_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BottomSheetView_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		E65D2FC0B53C32113816D60505A41CA2 /* Pods-BottomSheetView_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BottomSheetView_Example-umbrella.h"; sourceTree = "<group>"; };
+		EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		FC6D0C69564226FBC3B8D9A47B084E62 /* BottomSheetAppearance.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BottomSheetAppearance.swift; path = Sources/BottomSheetAppearance.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		23BAEE3A12873C74D59D10893DE28558 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86691411D23D62D492CA6D2558C0B915 /* Foundation.framework in Frameworks */,
+				D32188AC841CAD36CEE68BCB6D2FA387 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3E0DE7AA5B351E1DA0223F6E2E48B09C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -101,17 +112,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EA15CEE1D269188E33E62626F69E8978 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				790C6FFDA1B52DE9B59BD05F7EFB71F1 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				59DA5C1F72E1D5BABC43EACBA672C3BA /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2981D805AA3D3522E3E7A16FB99BBA79 /* Pods-BottomSheetView_Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,10 +187,11 @@
 			path = ../..;
 			sourceTree = "<group>";
 		};
-		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+		59DA5C1F72E1D5BABC43EACBA672C3BA /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+				EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */,
+				D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
@@ -226,18 +238,10 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				33B5395EE0AE9CC42F7803B7A98B2C56 /* Development Pods */,
-				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
 				3C250CF1044001BE198DFCCBF8956635 /* Products */,
 				C9B507E2D427D4B7298330CF55B7B4D2 /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				578452D2E740E91742655AC8F1636D1F /* iOS */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		F79E5BD6693FFC29DFABEC55570A949B /* Pod */ = {
@@ -253,19 +257,19 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		11F53C1DAD722D79520D2665BAAA8300 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				92516C36BB8C3D1600107E8F4BC6B0DE /* BottomSheetView-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		3A571FB542D3F33A8608E6D7CD44E677 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				C19B17438D3ECC1FEF79A5BD22385A39 /* Pods-BottomSheetView_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C849453F4CE0B9264A42B8B5788C2D9C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9196745E7D38EC7C2EA87D8710B40175 /* BottomSheetView-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,7 +296,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				56DDAF1CD5E55CC288C8204EF2D78726 /* PBXTargetDependency */,
+				FE7CF830A87CC618063DC5CDD8138431 /* PBXTargetDependency */,
 			);
 			name = "Pods-BottomSheetView_Tests";
 			productName = Pods_BottomSheetView_Tests;
@@ -301,12 +305,12 @@
 		};
 		CF18D5DE8F30365884F4B8AF1B05F252 /* BottomSheetView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A1679167F66E4BE70599C185C81DCFEA /* Build configuration list for PBXNativeTarget "BottomSheetView" */;
+			buildConfigurationList = E845CB53BBA9B5C579049E58AA33EE96 /* Build configuration list for PBXNativeTarget "BottomSheetView" */;
 			buildPhases = (
-				11F53C1DAD722D79520D2665BAAA8300 /* Headers */,
-				321CDE0E2EEC52163E62CC2B7A9E0083 /* Sources */,
-				EA15CEE1D269188E33E62626F69E8978 /* Frameworks */,
-				7321BE2D962AB191939A4233D4219C1E /* Resources */,
+				C849453F4CE0B9264A42B8B5788C2D9C /* Headers */,
+				A1B888FD8EC53C4308C17965FE97D02A /* Sources */,
+				23BAEE3A12873C74D59D10893DE28558 /* Frameworks */,
+				546D29E3056E1EC91155AE306A0559CC /* Resources */,
 			);
 			buildRules = (
 			);
@@ -366,7 +370,7 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		7321BE2D962AB191939A4233D4219C1E /* Resources */ = {
+		546D29E3056E1EC91155AE306A0559CC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -398,21 +402,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		321CDE0E2EEC52163E62CC2B7A9E0083 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C1D488A29973132FC2B4B5E09C6D0A0A /* BottomSheetAppearance.swift in Sources */,
-				7A2E22CD4EBAC03A2CD8E213BB85C574 /* BottomSheetLayout.swift in Sources */,
-				2013B0B481C5C2BF72B76871878C63B0 /* BottomSheetPosition.swift in Sources */,
-				F7A58BFCD251FC090486B79BAA9B7D01 /* BottomSheetView.swift in Sources */,
-				F839E4F1000B175A0B7CEFDD219AD550 /* BottomSheetView-dummy.m in Sources */,
-				F27ABF49AEC0F6567452E4B6476EC0E6 /* UIView+HeightWithoutSafeAreas.swift.swift in Sources */,
-				E03FB747F5C618E701A1610639E89FCD /* UIView+SpringAnimation.swift in Sources */,
-				1D1A48226E29D12C5E2295C6DE0DDF0D /* UIView+TypeFilter.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		60B462ECC0D429B47C358B221109CEFE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -421,56 +410,39 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A1B888FD8EC53C4308C17965FE97D02A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDE77F983A29B31B5395265DE20739E0 /* BottomSheetAppearance.swift in Sources */,
+				9B5A0533E85746F912FDE1068CE1E929 /* BottomSheetLayout.swift in Sources */,
+				015C8243FF538F7F3328B73099B060C9 /* BottomSheetPosition.swift in Sources */,
+				A890D23A99D6C4E43850ED73735DFE95 /* BottomSheetView.swift in Sources */,
+				CBDF75A568A0C2CAD0D8FED6D31B8674 /* BottomSheetView-dummy.m in Sources */,
+				DB43B827C68937D762FD52CED6CEACF8 /* UIView+HeightWithoutSafeAreas.swift.swift in Sources */,
+				5227B2882AED6225109D678DB539CF9D /* UIView+SpringAnimation.swift in Sources */,
+				B6572809A211B7805342A4CA79A1C363 /* UIView+TypeFilter.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		56DDAF1CD5E55CC288C8204EF2D78726 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Pods-BottomSheetView_Example";
-			target = E2ED3658A8EE693C79FC0ED621886494 /* Pods-BottomSheetView_Example */;
-			targetProxy = 09B3579946A48AE67FDE538A7D03BA20 /* PBXContainerItemProxy */;
-		};
 		A83207CBA2FE28621A65BFAFA67F6CAA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = BottomSheetView;
 			target = CF18D5DE8F30365884F4B8AF1B05F252 /* BottomSheetView */;
 			targetProxy = 20DA86FCA0EE620E57D731824B8C5B96 /* PBXContainerItemProxy */;
 		};
+		FE7CF830A87CC618063DC5CDD8138431 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-BottomSheetView_Example";
+			target = E2ED3658A8EE693C79FC0ED621886494 /* Pods-BottomSheetView_Example */;
+			targetProxy = 96197906F6D03B8255A2CDC40F432583 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		07522E9A590FA39A9B1AFD46A6A31E00 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 51AD4D981D73DF6FD0888CDFFB35A85E /* BottomSheetView.debug.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/BottomSheetView/BottomSheetView-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/BottomSheetView/BottomSheetView-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/BottomSheetView/BottomSheetView.modulemap";
-				PRODUCT_MODULE_NAME = BottomSheetView;
-				PRODUCT_NAME = BottomSheetView;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		14A93F80B4BAF7485D878FD7A0E3A345 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3BB82C3FC966E05116591442321DDF65 /* Pods-BottomSheetView_Tests.release.xcconfig */;
@@ -499,6 +471,39 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		696398E00840B649D2F74817BBB68504 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3769BA18C02404C268DB1C362F3075C4 /* BottomSheetView.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/BottomSheetView/BottomSheetView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BottomSheetView/BottomSheetView-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/BottomSheetView/BottomSheetView.modulemap";
+				PRODUCT_MODULE_NAME = BottomSheetView;
+				PRODUCT_NAME = BottomSheetView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -703,6 +708,38 @@
 			};
 			name = Debug;
 		};
+		BD8776108D6455216526B090DE3E1940 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51AD4D981D73DF6FD0888CDFFB35A85E /* BottomSheetView.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/BottomSheetView/BottomSheetView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BottomSheetView/BottomSheetView-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/BottomSheetView/BottomSheetView.modulemap";
+				PRODUCT_MODULE_NAME = BottomSheetView;
+				PRODUCT_NAME = BottomSheetView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		DAA7BCEC591C7D5388F987512DC076E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 44748F8D14F50D206F5E6F3DF766CBE3 /* Pods-BottomSheetView_Tests.debug.xcconfig */;
@@ -737,39 +774,6 @@
 			};
 			name = Debug;
 		};
-		EF0A6D2816DC801B9FCF95AAB0A0810E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3769BA18C02404C268DB1C362F3075C4 /* BottomSheetView.release.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/BottomSheetView/BottomSheetView-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/BottomSheetView/BottomSheetView-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/BottomSheetView/BottomSheetView.modulemap";
-				PRODUCT_MODULE_NAME = BottomSheetView;
-				PRODUCT_NAME = BottomSheetView;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -800,11 +804,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A1679167F66E4BE70599C185C81DCFEA /* Build configuration list for PBXNativeTarget "BottomSheetView" */ = {
+		E845CB53BBA9B5C579049E58AA33EE96 /* Build configuration list for PBXNativeTarget "BottomSheetView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				07522E9A590FA39A9B1AFD46A6A31E00 /* Debug */,
-				EF0A6D2816DC801B9FCF95AAB0A0810E /* Release */,
+				BD8776108D6455216526B090DE3E1940 /* Debug */,
+				696398E00840B649D2F74817BBB68504 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
