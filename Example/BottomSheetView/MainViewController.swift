@@ -30,17 +30,13 @@ class MainViewController: UIViewController {
     super.viewDidLoad()
     setup()
   }
-
-  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    bottomSheetView.move(to: .tip)
-    super.touchesBegan(touches, with: event)
-  }
+  
 
   // MARK: - Private
 
   private func setup() {
     setupLayout()
-    setupBottomSheet()
+    setupView()
   }
 
   private func setupLayout() {
@@ -53,9 +49,23 @@ class MainViewController: UIViewController {
       mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
     ])
   }
-
+  
+  private func setupView() {
+    setupMapView()
+    setupBottomSheet()
+  }
+  
+  private func setupMapView() {
+    mapView.delegate = self
+  }
+  
   private func setupBottomSheet() {
     bottomSheetView.configure(parentViewController: self, contentViewController: contentViewContoller)
   }
+}
 
+extension MainViewController: MKMapViewDelegate {
+  func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
+    bottomSheetView.move(to: .tip)
+  }
 }
