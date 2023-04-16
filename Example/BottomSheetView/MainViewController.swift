@@ -20,9 +20,9 @@ class MainViewController: UIViewController {
   let mapView = MKMapView()
 
   /// ✨ Examples : you can unmark line to show how certain style works
-  let contentViewContoller = ListViewController(collectionViewLayout: UICollectionViewFlowLayout())
-//  let contentViewContoller = GridViewController(collectionViewLayout: UICollectionViewFlowLayout())
-//  let contentViewContoller = UIViewController()
+  let contentViewController = ListViewController(collectionViewLayout: UICollectionViewFlowLayout())
+//  let contentViewController = GridViewController(collectionViewLayout: UICollectionViewFlowLayout())
+//  let contentViewController = UIViewController()
 
   // MARK: - LifeCycle
 
@@ -60,7 +60,7 @@ class MainViewController: UIViewController {
   }
   
   private func setupBottomSheet() {
-    bottomSheetView.configure(parentViewController: self, contentViewController: contentViewContoller)
+    bottomSheetView.configure(parentViewController: self, contentViewController: contentViewController)
   }
 }
 
