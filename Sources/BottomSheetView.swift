@@ -31,9 +31,10 @@ public final class BottomSheetView: UIView {
 
   // MARK: - UI
 
-  private weak var parentViewController: UIViewController! {
+  private weak var parentViewController: UIViewController? {
     willSet {
-      configureBottomSheet(newValue)
+      guard let parentViewController = newValue else { return }
+      configureBottomSheet(parentViewController)
     }
   }
   private weak var contentViewController: UIViewController? {
@@ -47,7 +48,7 @@ public final class BottomSheetView: UIView {
     }
   }
 
-  private var topConstraint: NSLayoutConstraint!
+  private var topConstraint: NSLayoutConstraint?
   private var contentScrollView: UIScrollView?
 
   private let grabberContainerView = UIView()
@@ -132,6 +133,8 @@ public final class BottomSheetView: UIView {
 
   @objc
   private func didPan(_ sender: UIPanGestureRecognizer) {
+    guard let parentViewController else { return }
+
     let translation = sender.translation(in: self)
     let panVelocity = sender.velocity(in: self).y
 
@@ -149,16 +152,16 @@ public final class BottomSheetView: UIView {
       let isMaximumPositionAndUp = frame.height > parentViewController.view.frame.height - parentViewController.view.safeAreaInsets.top
 
       guard isMinimumPositionAndDown == false else {
-        topConstraint.constant += translation.y * 0.5
+        topConstraint?.constant += translation.y * 0.5
         return
       }
 
       guard isMaximumPositionAndUp == false else {
-        topConstraint.constant += translation.y * 0.2
+        topConstraint?.constant += translation.y * 0.2
         return
       }
 
-      topConstraint.constant += translation.y
+      topConstraint?.constant += translation.y
 
     case .ended:
       let isPanningUpWithSpeed = panVelocity < -500
@@ -251,6 +254,7 @@ public final class BottomSheetView: UIView {
   }
 
   public func move(to position: BottomSheetPosition) {
+    guard let parentViewController else { return }
     contentScrollView?.isScrollEnabled = position == .full
 
     let topAnchorWithSafeArea: CGFloat = {
@@ -268,11 +272,11 @@ public final class BottomSheetView: UIView {
       }
     }()
 
-    topConstraint.constant = topAnchorWithSafeArea
+    topConstraint?.constant = topAnchorWithSafeArea
 
     UIView.animateWithSpring(
       animation: {
-        self.parentViewController.view.layoutIfNeeded()
+        parentViewController.view.layoutIfNeeded()
       },
       completion: { [weak self] _ in
         self?.delegate?.didMove(to: position)
@@ -289,6 +293,7 @@ public final class BottomSheetView: UIView {
   private func configureContentView(_ contentViewController: UIViewController?) {
     // check and type casting contentViewController is/has scrollView
     guard let contentViewController,
+          let parentViewController,
           let contentScrollView = contentViewController.view.firstView(ofType: UIScrollView.self) else { return }
     self.contentScrollView = contentScrollView
 
@@ -305,7 +310,7 @@ public final class BottomSheetView: UIView {
         contentViewController.view.topAnchor.constraint(equalTo: self.grabberContainerView.bottomAnchor),
         contentViewController.view.leadingAnchor.constraint(equalTo: self.leadingAnchor),
         contentViewController.view.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-        contentViewController.view.heightAnchor.constraint(equalToConstant: self.parentViewController.view.heightWithoutSafeAreas)
+        contentViewController.view.heightAnchor.constraint(equalToConstant: parentViewController.view.heightWithoutSafeAreas)
       ])
     }
   }
@@ -319,7 +324,7 @@ public final class BottomSheetView: UIView {
       constant: layout.anchoring(of: .half).topAnchor(with: parentViewController))
 
     NSLayoutConstraint.activate([
-      topConstraint,
+      topConstraint!,
       leadingAnchor.constraint(equalTo: parentViewController.view.leadingAnchor),
       trailingAnchor.constraint(equalTo: parentViewController.view.trailingAnchor),
       bottomAnchor.constraint(equalTo: parentViewController.view.bottomAnchor),
