@@ -20,9 +20,9 @@ class MainViewController: UIViewController {
   let mapView = MKMapView()
 
   /// ✨ Examples : you can unmark line to show how certain style works
-  let contentViewContoller = ListViewController(collectionViewLayout: UICollectionViewFlowLayout())
-//  let contentViewContoller = GridViewController(collectionViewLayout: UICollectionViewFlowLayout())
-//  let contentViewContoller = UIViewController()
+  let contentViewController = ListViewController(collectionViewLayout: UICollectionViewFlowLayout())
+//  let contentViewController = GridViewController(collectionViewLayout: UICollectionViewFlowLayout())
+//  let contentViewController = UIViewController()
 
   // MARK: - LifeCycle
 
@@ -30,17 +30,13 @@ class MainViewController: UIViewController {
     super.viewDidLoad()
     setup()
   }
-
-  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    bottomSheetView.move(to: .tip)
-    super.touchesBegan(touches, with: event)
-  }
+  
 
   // MARK: - Private
 
   private func setup() {
     setupLayout()
-    setupBottomSheet()
+    setupView()
   }
 
   private func setupLayout() {
@@ -53,9 +49,23 @@ class MainViewController: UIViewController {
       mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
     ])
   }
-
-  private func setupBottomSheet() {
-    bottomSheetView.configure(parentViewController: self, contentViewController: contentViewContoller)
+  
+  private func setupView() {
+    setupMapView()
+    setupBottomSheet()
   }
+  
+  private func setupMapView() {
+    mapView.delegate = self
+  }
+  
+  private func setupBottomSheet() {
+    bottomSheetView.configure(parentViewController: self, contentViewController: contentViewController)
+  }
+}
 
+extension MainViewController: MKMapViewDelegate {
+  func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
+    bottomSheetView.move(to: .tip)
+  }
 }
