@@ -12,16 +12,16 @@ public struct BottomSheetAppearance {
   // MARK: - Properties
   
   /// Bases
-  public var backgroundColor: UIColor = .white
-  public var bottomSheetCornerRadius: CGFloat = 20
+  public var backgroundColor: UIColor
+  public var bottomSheetCornerRadius: CGFloat
 
   /// Grabber
-  public var grabberBackgroundColor: UIColor = UIColor.lightGray.withAlphaComponent(0.7)
-  public var grabberWidth: CGFloat = 32
-  public var grabberHeight: CGFloat = 6
+  public var grabberBackgroundColor: UIColor
+  public var grabberWidth: CGFloat
+  public var grabberHeight: CGFloat
 
   /// Settings
-  public var isContentScrollViewBouncingWhenScrollDown: Bool = true
+  public var isContentScrollViewBouncingWhenScrollDown: Bool
   
   
   // MARK: - Initializers
@@ -32,7 +32,7 @@ public struct BottomSheetAppearance {
     grabberBackgroundColor: UIColor = UIColor.lightGray.withAlphaComponent(0.7),
     grabberWidth: CGFloat = 32,
     grabberHeight: CGFloat = 6,
-    isContentScrollViewBouncingWhenScrollDown: Bool = true
+    isContentScrollViewBouncingWhenScrollDown: Bool = false
   ) {
     self.backgroundColor = backgroundColor
     self.bottomSheetCornerRadius = bottomSheetCornerRadius

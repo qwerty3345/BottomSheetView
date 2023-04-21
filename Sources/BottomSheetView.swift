@@ -340,8 +340,10 @@ public final class BottomSheetView: UIView {
       constant: layout.anchoring(of: .half).topAnchor(with: parentViewController)
     )
 
+    guard let topConstraint else { return }
+
     NSLayoutConstraint.activate([
-      topConstraint!,
+      topConstraint,
       leadingAnchor.constraint(equalTo: parentViewController.view.leadingAnchor),
       trailingAnchor.constraint(equalTo: parentViewController.view.trailingAnchor),
       bottomAnchor.constraint(equalTo: parentViewController.view.bottomAnchor),
