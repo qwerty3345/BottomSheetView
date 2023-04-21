@@ -8,6 +8,9 @@
 import UIKit
 
 public struct BottomSheetAppearance {
+  
+  // MARK: - Properties
+  
   /// Bases
   public var backgroundColor: UIColor = .white
   public var bottomSheetCornerRadius: CGFloat = 20
@@ -19,4 +22,9 @@ public struct BottomSheetAppearance {
 
   /// Settings
   public var isContentScrollViewBouncingWhenScrollDown = true
+  
+  
+  // MARK: - Initializers
+  
+  public init() { }
 }

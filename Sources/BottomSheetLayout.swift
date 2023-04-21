@@ -35,6 +35,9 @@ public enum BottomSheetAnchoring {
 }
 
 public struct DefaultBottomSheetLayout: BottomSheetLayout {
+  
+  public init() { }
+  
   public func anchoring(of position: BottomSheetPosition) -> BottomSheetAnchoring {
     switch position {
     case .full:
