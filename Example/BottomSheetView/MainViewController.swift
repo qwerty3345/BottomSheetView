@@ -11,18 +11,22 @@ import MapKit
 
 import BottomSheetView
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
 
   // MARK: - UI
 
-  let bottomSheetView = BottomSheetView()
+  private let bottomSheetView = BottomSheetView()
 
-  let mapView = MKMapView()
+  private let mapView = MKMapView()
 
   /// ✨ Examples : you can unmark line to show how certain style works
-  let contentViewController = ListViewController(collectionViewLayout: UICollectionViewFlowLayout())
-//  let contentViewController = GridViewController(collectionViewLayout: UICollectionViewFlowLayout())
-//  let contentViewController = UIViewController()
+  private let contentViewController = ListViewController(
+    collectionViewLayout: UICollectionViewFlowLayout()
+  )
+//  private let contentViewController = GridViewController(
+//    collectionViewLayout: UICollectionViewFlowLayout()
+//  )
+//  private let contentViewController = UIViewController()
 
   // MARK: - LifeCycle
 
@@ -61,8 +65,24 @@ class MainViewController: UIViewController {
   
   private func setupBottomSheet() {
     bottomSheetView.configure(parentViewController: self, contentViewController: contentViewController)
+    bottomSheetView.delegate = self
   }
 }
+
+
+// MARK: - BottomSheetViewDelegate
+
+extension MainViewController: BottomSheetViewDelegate {
+  func bottomSheetView(_ bottomSheetView: BottomSheetView, willMoveTo position: BottomSheetPosition) {
+    print("✨ willMove: \(position)")
+  }
+  func bottomSheetView(_ bottomSheetView: BottomSheetView, didMoveTo position: BottomSheetPosition) {
+    print("✨ didMove: \(position)")
+  }
+}
+
+
+// MARK: - MKMapViewDelegate
 
 extension MainViewController: MKMapViewDelegate {
   func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {

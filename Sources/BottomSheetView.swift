@@ -1,8 +1,8 @@
 import UIKit
 
 public protocol BottomSheetViewDelegate {
-  func willMove(to: BottomSheetPosition)
-  func didMove(to: BottomSheetPosition)
+  func bottomSheetView(_ bottomSheetView: BottomSheetView, willMoveTo position: BottomSheetPosition)
+  func bottomSheetView(_ bottomSheetView: BottomSheetView, didMoveTo position: BottomSheetPosition)
 }
 
 public final class BottomSheetView: UIView {
@@ -282,10 +282,11 @@ public final class BottomSheetView: UIView {
         parentViewController.view.layoutIfNeeded()
       },
       completion: { [weak self] _ in
-        self?.delegate?.didMove(to: position)
+        guard let self else { return }
+        delegate?.bottomSheetView(self, didMoveTo: position)
       })
 
-    delegate?.willMove(to: position)
+    delegate?.bottomSheetView(self, willMoveTo: position)
     currentPosition = position
   }
 
