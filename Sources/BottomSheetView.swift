@@ -139,61 +139,77 @@ public final class BottomSheetView: UIView {
 
     switch sender.state {
     case .changed:
-      defer {
-        setNeedsLayout()
-        sender.setTranslation(.zero, in: self)
-      }
-
-      let minimumPositionStandard: BottomSheetPosition = isTipEnabled ? .tip : .half
-      let height = layout.anchoring(of: minimumPositionStandard).height(with: parentViewController)
-
-      let isMinimumPositionAndDown = (frame.height <= height) && (panVelocity >= 0)
-      let isMaximumPositionAndUp = frame.height > parentViewController.view.frame.height - parentViewController.view.safeAreaInsets.top
-
-      guard isMinimumPositionAndDown == false else {
-        topConstraint?.constant += translation.y * 0.5
-        return
-      }
-
-      guard isMaximumPositionAndUp == false else {
-        topConstraint?.constant += translation.y * 0.2
-        return
-      }
-
-      topConstraint?.constant += translation.y
-
+      didPanBottomSheetChanged(sender,
+                               parentViewController: parentViewController,
+                               translation: translation,
+                               panVelocity: panVelocity)
     case .ended:
-      let isPanningUpWithSpeed = panVelocity < -500
-      let isPanningDownWithSpeed = panVelocity > 500
-
-      if isPanningDownWithSpeed {
-        let destination: BottomSheetPosition = isTipEnabled && (currentPosition == .half) ? .tip : .half
-        move(to: destination)
-        return
-      }
-
-      if isPanningUpWithSpeed {
-        let destination: BottomSheetPosition = currentPosition == .tip ? .half : .full
-        move(to: destination)
-        return
-      }
-
-      guard let closestDestination = BottomSheetPosition.allCases.min(by: {
-        abs(layout.anchoring(of: $0).height(with: parentViewController) - frame.height)
-        < abs(layout.anchoring(of: $1).height(with: parentViewController) - frame.height)
-      }) else { return }
-
-
-      if isTipEnabled == false && closestDestination == .tip {
-        move(to: .half)
-        return
-      }
-
-      move(to: closestDestination)
-
+      didPanBottomSheetEnded(sender,
+                             parentViewController: parentViewController,
+                             panVelocity: panVelocity)
     default:
       break
     }
+  }
+
+  private func didPanBottomSheetChanged(_ sender: UIPanGestureRecognizer,
+                                        parentViewController: UIViewController,
+                                        translation: CGPoint,
+                                        panVelocity: CGFloat) {
+    defer {
+      setNeedsLayout()
+      sender.setTranslation(.zero, in: self)
+    }
+
+    let minimumPositionStandard: BottomSheetPosition = isTipEnabled ? .tip : .half
+    let height = layout.anchoring(of: minimumPositionStandard).height(with: parentViewController)
+
+    let isMinimumPositionAndDown = (frame.height <= height) && (panVelocity >= 0)
+    let isMaximumPositionAndUp = frame.height > parentViewController.view.frame.height - parentViewController.view.safeAreaInsets.top
+
+    guard isMinimumPositionAndDown == false else {
+      topConstraint?.constant += translation.y * 0.5
+      return
+    }
+
+    guard isMaximumPositionAndUp == false else {
+      topConstraint?.constant += translation.y * 0.2
+      return
+    }
+
+    topConstraint?.constant += translation.y
+  }
+
+  private func didPanBottomSheetEnded(_ sender: UIPanGestureRecognizer,
+                                      parentViewController: UIViewController,
+                                      panVelocity: CGFloat) {
+    let isPanningUpWithSpeed = panVelocity < -500
+    let isPanningDownWithSpeed = panVelocity > 500
+
+    if isPanningDownWithSpeed {
+      let destination: BottomSheetPosition = isTipEnabled && (currentPosition == .half) ? .tip : .half
+      move(to: destination)
+      return
+    }
+
+    if isPanningUpWithSpeed {
+      let destination: BottomSheetPosition = currentPosition == .tip ? .half : .full
+      move(to: destination)
+      return
+    }
+
+    guard let closestDestination = BottomSheetPosition.allCases.min(by: {
+      abs(layout.anchoring(of: $0).height(with: parentViewController) - frame.height)
+      < abs(layout.anchoring(of: $1).height(with: parentViewController) - frame.height)
+    }) else { return }
+
+
+    if isTipEnabled == false && closestDestination == .tip {
+      move(to: .half)
+      return
+    }
+
+    move(to: closestDestination)
   }
 
   @objc
