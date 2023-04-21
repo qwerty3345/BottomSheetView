@@ -21,10 +21,24 @@ public struct BottomSheetAppearance {
   public var grabberHeight: CGFloat = 6
 
   /// Settings
-  public var isContentScrollViewBouncingWhenScrollDown = true
+  public var isContentScrollViewBouncingWhenScrollDown: Bool = true
   
   
   // MARK: - Initializers
   
-  public init() { }
+  public init(
+    backgroundColor: UIColor = .white,
+    bottomSheetCornerRadius: CGFloat = 20,
+    grabberBackgroundColor: UIColor = UIColor.lightGray.withAlphaComponent(0.7),
+    grabberWidth: CGFloat = 32,
+    grabberHeight: CGFloat = 6,
+    isContentScrollViewBouncingWhenScrollDown: Bool = true
+  ) {
+    self.backgroundColor = backgroundColor
+    self.bottomSheetCornerRadius = bottomSheetCornerRadius
+    self.grabberBackgroundColor = grabberBackgroundColor
+    self.grabberWidth = grabberWidth
+    self.grabberHeight = grabberHeight
+    self.isContentScrollViewBouncingWhenScrollDown = isContentScrollViewBouncingWhenScrollDown
+  }
 }
