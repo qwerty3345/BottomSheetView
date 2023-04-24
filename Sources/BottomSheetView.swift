@@ -15,6 +15,7 @@ public final class BottomSheetView: UIView {
   public var appearance = BottomSheetAppearance() {
     didSet {
       setupView()
+      setupLayout()
     }
   }
 
@@ -83,6 +84,11 @@ public final class BottomSheetView: UIView {
   private func setupGrabberContainerLayout() {
     addSubview(grabberContainerView)
     grabberContainerView.translatesAutoresizingMaskIntoConstraints = false
+
+    grabberContainerView.constraints.forEach { constraint in
+      constraint.isActive = false
+    }
+
     NSLayoutConstraint.activate([
       grabberContainerView.topAnchor.constraint(equalTo: topAnchor),
       grabberContainerView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -94,6 +100,11 @@ public final class BottomSheetView: UIView {
   private func setupGrabberLayout() {
     grabberContainerView.addSubview(grabberView)
     grabberView.translatesAutoresizingMaskIntoConstraints = false
+
+    grabberView.constraints.forEach { constraint in
+      constraint.isActive = false
+    }
+
     NSLayoutConstraint.activate([
       grabberView.centerXAnchor.constraint(equalTo: grabberContainerView.centerXAnchor),
       grabberView.centerYAnchor.constraint(equalTo: grabberContainerView.centerYAnchor),
@@ -119,7 +130,10 @@ public final class BottomSheetView: UIView {
 
   private func setupGrabberView() {
     grabberView.backgroundColor = appearance.grabberBackgroundColor
-    grabberView.layer.cornerRadius = appearance.grabberHeight / 2
+    grabberView.layer.cornerRadius = appearance.grabberCornerRadius
+    NSLayoutConstraint.activate([
+
+    ])
   }
 
 
@@ -287,7 +301,7 @@ public final class BottomSheetView: UIView {
         return topAnchor
       case .tip:
         let bottomSafeAreaInset = parentViewController.view.safeAreaInsets.bottom
-        return topAnchor + bottomSafeAreaInset
+        return topAnchor + bottomSafeAreaInset - appearance.grabberHeight
       }
     }()
 

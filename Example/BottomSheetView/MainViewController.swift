@@ -66,6 +66,13 @@ final class MainViewController: UIViewController {
   private func setupBottomSheet() {
     bottomSheetView.configure(parentViewController: self, contentViewController: contentViewController)
     bottomSheetView.delegate = self
+
+    bottomSheetView.appearance = BottomSheetAppearance(
+      grabberBackgroundColor: .black,
+      grabberWidth: 100,
+      grabberHeight: 8,
+      grabberCornerRadius: 4
+    )
   }
 }
 
