@@ -5,10 +5,6 @@
 [![Version](https://img.shields.io/cocoapods/v/BottomSheetView.svg?style=flat)](https://cocoapods.org/pods/BottomSheetView)
 [![SwiftPM](https://img.shields.io/badge/SPM-supported-DE5C43.svg?style=flat)](https://swift.org/package-manager/)
 
-📚BottomSheetView is a library that makes it very easy to implement bottom sheet style views used in many Apps such as Map, Stock...
-☺️Implement a bottom sheet easily with BottomSheetView!
-> 😵From UIKit 15 version, `UISheetPresentationController` was introduced, but the target version is still higher.
-
 <details>
 <summary>Korean</summary>
 📚BottomSheetView 는 네이버지도앱, 주식앱 등 여러 곳에서 사용되는 바텀시트 스타일의 뷰를 아주 손쉽게 구현하기 위한 라이브러리입니다!
@@ -19,6 +15,10 @@
 
 </details>
 
+📚BottomSheetView is a library that makes it very easy to implement bottom sheet style views used in many Apps such as Map, Stock...
+☺️Implement a bottom sheet easily with BottomSheetView!
+> 😵From UIKit 15 version, `UISheetPresentationController` was introduced, but the target version is still higher.
+
 
 
 https://user-images.githubusercontent.com/59835351/232277869-77c3f5e1-5198-4b99-84e4-70c239200e1c.mp4
@@ -27,72 +27,7 @@ https://user-images.githubusercontent.com/59835351/232277869-77c3f5e1-5198-4b99-
 
 ## 📝 Example
 
-
-### Initial setup
-
-How to use is very simple.
-Just create a `BottomSheetView` and call its `configure` method, and you're done!
-
-```swift
-// Inside the ViewController to represent the BottomSheet...
-let bottomSheetView = BottomSheetView()
-let contentViewContoller = YourContentViewController()
-
-override func viewDidLoad() {
-  bottomSheetView.configure(
-    parentViewController: self,
-    contentViewController: contentViewContoller
-  )
-}
-
-```
-
-### **Change BottomSheet mode**
-
-The basic setting of the bottom sheet supports three modes: `full`/`half`/`tip`.
-If you want to use only two modes, `full`/`half`, you can set it as below!
-
-```swift
-bottomSheetView.isTipEnabled = false
-```
-
-### Set size for full/half/tip mode
-
-```swift
-// Make struct that implements BottomSheetLayout protocol
-struct SomeLayout: BottomSheetLayout {
-  func anchoring(of position: BottomSheetPosition) -> BottomSheetAnchoring {
-    switch position {
-    case .full:
-      return .fractional(0.9) // Fill up to 90%
-    case .half:
-      return .absolute(500) // absolute value by 500
-    case .tip:
-      return .fractional(0.2) // Fill up to 20%
-    }
-  }
-}
-
-bottomSheetView.layout = SomeLayout()
-```
-
-### **BottomSheet design custom**
-
-```swift
-bottomSheetView.appearance = BottomSheetAppearance(
-  backgroundColor: .white,
-  bottomSheetCornerRadius: 20,
-  grabberBackgroundColor: .lightGray,
-  grabberWidth: 32,
-  grabberHeight: 6,
-  isContentScrollViewBouncingWhenScrollDown: true
-)
-```
-
-
-
 <details>
-
 <summary>Korean</summary>
 
 ### 초기 설정
@@ -158,6 +93,70 @@ bottomSheetView.appearance = BottomSheetAppearance(
 ```
 
 </details>
+
+
+### Initial setup
+
+How to use is very simple.
+Just create a `BottomSheetView` and call its `configure` method, and you're done!
+
+```swift
+// Inside the ViewController to represent the BottomSheet...
+let bottomSheetView = BottomSheetView()
+let contentViewContoller = YourContentViewController()
+
+override func viewDidLoad() {
+  bottomSheetView.configure(
+    parentViewController: self,
+    contentViewController: contentViewContoller
+  )
+}
+
+```
+
+### **Change BottomSheet mode**
+
+The basic setting of the bottom sheet supports three modes: `full`/`half`/`tip`.
+If you want to use only two modes, `full`/`half`, you can set it as below!
+
+```swift
+bottomSheetView.isTipEnabled = false
+```
+
+### Set size for full/half/tip mode
+
+```swift
+// Make struct that implements BottomSheetLayout protocol
+struct SomeLayout: BottomSheetLayout {
+  func anchoring(of position: BottomSheetPosition) -> BottomSheetAnchoring {
+    switch position {
+    case .full:
+      return .fractional(0.9) // Fill up to 90%
+    case .half:
+      return .absolute(500) // absolute value by 500
+    case .tip:
+      return .fractional(0.2) // Fill up to 20%
+    }
+  }
+}
+
+bottomSheetView.layout = SomeLayout()
+```
+
+### **BottomSheet design custom**
+
+```swift
+bottomSheetView.appearance = BottomSheetAppearance(
+  backgroundColor: .white,
+  bottomSheetCornerRadius: 20,
+  grabberBackgroundColor: .lightGray,
+  grabberWidth: 32,
+  grabberHeight: 6,
+  isContentScrollViewBouncingWhenScrollDown: true
+)
+```
+
+
 
 
 ## Requirements
