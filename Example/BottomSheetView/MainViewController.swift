@@ -66,7 +66,21 @@ final class MainViewController: UIViewController {
   private func setupBottomSheet() {
     bottomSheetView.configure(parentViewController: self, contentViewController: contentViewController)
     bottomSheetView.delegate = self
-
+    
+    setupBottomSheetLayout()
+    setupBottomSheetAppearance()
+  }
+  
+  private func setupBottomSheetLayout() {
+    let layout = BottomSheetLayout(
+      full: .fractional(1.0),
+      half: .fractional(0.7),
+      tip: .fractional(0.4)
+    )
+    bottomSheetView.layout = layout
+  }
+  
+  private func setupBottomSheetAppearance() {
     bottomSheetView.appearance = BottomSheetAppearance(
       grabberBackgroundColor: .black,
       grabberWidth: 100,
@@ -85,6 +99,8 @@ extension MainViewController: BottomSheetViewDelegate {
                        willMoveTo destination: BottomSheetPosition,
                        from startPosition: BottomSheetPosition) {
     print("✨ willMove: \(destination), from: \(startPosition)")
+    print(bottomSheetView.layout.anchoring(of: destination).height(with: self))
+    print(bottomSheetView.layout.anchoring(of: destination).topAnchor(with: self))
   }
   
   func bottomSheetView(_ bottomSheetView: BottomSheetView,

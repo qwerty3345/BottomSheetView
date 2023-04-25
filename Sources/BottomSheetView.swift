@@ -15,7 +15,12 @@ public final class BottomSheetView: UIView {
 
   public var delegate: BottomSheetViewDelegate?
 
-  public var layout = DefaultBottomSheetLayout()
+  public var layout = BottomSheetLayout() {
+    didSet {
+      setupView()
+      setupLayout()
+    }
+  }
   public var appearance = BottomSheetAppearance() {
     didSet {
       setupView()

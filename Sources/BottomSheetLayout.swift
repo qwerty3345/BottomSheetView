@@ -7,8 +7,29 @@
 
 import UIKit
 
-public protocol BottomSheetLayout {
-  func anchoring(of position: BottomSheetPosition) -> BottomSheetAnchoring
+public struct BottomSheetLayout {
+  public private(set) var full: BottomSheetAnchoring
+  public private(set) var half: BottomSheetAnchoring
+  public private(set) var tip: BottomSheetAnchoring
+  
+  public func anchoring(of position: BottomSheetPosition) -> BottomSheetAnchoring {
+    switch position {
+    case .full:
+      return full
+    case .half:
+      return half
+    case .tip:
+      return tip
+    }
+  }
+  
+  public init(full: BottomSheetAnchoring = .fractional(1.0),
+              half: BottomSheetAnchoring = .absolute(320),
+              tip: BottomSheetAnchoring = .absolute(100)) {
+    self.full = full
+    self.half = half
+    self.tip = tip
+  }
 }
 
 public enum BottomSheetAnchoring {
@@ -30,22 +51,6 @@ public enum BottomSheetAnchoring {
       return value
     case .fractional(let value):
       return value * parentViewController.view.frame.height
-    }
-  }
-}
-
-public struct DefaultBottomSheetLayout: BottomSheetLayout {
-  
-  public init() { }
-  
-  public func anchoring(of position: BottomSheetPosition) -> BottomSheetAnchoring {
-    switch position {
-    case .full:
-      return BottomSheetAnchoring.fractional(1.0)
-    case .half:
-      return BottomSheetAnchoring.absolute(320)
-    case .tip:
-      return BottomSheetAnchoring.absolute(100)
     }
   }
 }
