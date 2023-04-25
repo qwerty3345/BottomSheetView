@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum BottomSheetPosition: CaseIterable {
+@objc public enum BottomSheetPosition: Int, CaseIterable {
   case full
   case half
   case tip

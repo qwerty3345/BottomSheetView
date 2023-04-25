@@ -15,7 +15,7 @@ public enum BottomSheetAnchoring {
   case absolute(CGFloat)
   case fractional(CGFloat)
 
-  func topAnchor(with parentViewController: UIViewController) -> CGFloat {
+  public func topAnchor(with parentViewController: UIViewController) -> CGFloat {
     switch self {
     case .absolute(let value):
       return abs(value - parentViewController.view.frame.height)
@@ -24,7 +24,7 @@ public enum BottomSheetAnchoring {
     }
   }
 
-  func height(with parentViewController: UIViewController) -> CGFloat {
+  public func height(with parentViewController: UIViewController) -> CGFloat {
     switch self {
     case .absolute(let value):
       return value
