@@ -46,10 +46,10 @@
 /* Begin PBXFileReference section */
 		02EBA3B491FE7C429BECD047E96BB205 /* Pods-BottomSheetView_Example */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-BottomSheetView_Example"; path = Pods_BottomSheetView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0824724D2A43FA4E1A9D9D15EA0E1C07 /* BottomSheetView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BottomSheetView.swift; path = Sources/BottomSheetView.swift; sourceTree = "<group>"; };
-		0978BC168FC89B38CAFF9A299352E806 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		0978BC168FC89B38CAFF9A299352E806 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		1BE1EF3934920054EAC928ABF450A106 /* BottomSheetView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = BottomSheetView.modulemap; sourceTree = "<group>"; };
 		1CD55D0C571FC9C22C40CDB0F76D39FE /* Pods-BottomSheetView_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-BottomSheetView_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		22E314584963ABB2D6420C99A4B674A5 /* BottomSheetView.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = BottomSheetView.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		22E314584963ABB2D6420C99A4B674A5 /* BottomSheetView.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = BottomSheetView.podspec; sourceTree = "<group>"; tabWidth = 2; };
 		33A8C06CA20465E62C43AF8A44A9413F /* Pods-BottomSheetView_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BottomSheetView_Tests-Info.plist"; sourceTree = "<group>"; };
 		3769BA18C02404C268DB1C362F3075C4 /* BottomSheetView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BottomSheetView.release.xcconfig; sourceTree = "<group>"; };
 		39A21FDD3837143B4EAF13566BCB35E6 /* Pods-BottomSheetView_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-BottomSheetView_Example.modulemap"; sourceTree = "<group>"; };
@@ -70,7 +70,7 @@
 		8C1D38842C959CC53C8482EAFF0674A3 /* BottomSheetPosition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BottomSheetPosition.swift; path = Sources/BottomSheetPosition.swift; sourceTree = "<group>"; };
 		91B52365904C1E5BC64870899B81117D /* Pods-BottomSheetView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BottomSheetView_Example.release.xcconfig"; sourceTree = "<group>"; };
 		99A1C468BDC52A91847DD7845214D4B5 /* BottomSheetLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BottomSheetLayout.swift; path = Sources/BottomSheetLayout.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B8480E19BD6FE65B4DE2D03A068A8760 /* BottomSheetView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BottomSheetView-prefix.pch"; sourceTree = "<group>"; };
 		BA80832F59CA67A66FF671D820270999 /* Pods-BottomSheetView_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BottomSheetView_Tests-dummy.m"; sourceTree = "<group>"; };
 		BAC423923A900A1446801D181386B45B /* Pods-BottomSheetView_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BottomSheetView_Example-frameworks.sh"; sourceTree = "<group>"; };
@@ -79,7 +79,7 @@
 		D06A0AFC44F801AE73DA307D8D2EA187 /* BottomSheetView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BottomSheetView-umbrella.h"; sourceTree = "<group>"; };
 		D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		D973B69BB5B7DCFE37A9B1626C009371 /* Pods-BottomSheetView_Tests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-BottomSheetView_Tests"; path = Pods_BottomSheetView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DDB3CB788C99C06F2095CF548697052E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		DDB3CB788C99C06F2095CF548697052E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		DF6F8BB2ADE03F5F7B2FC52852130733 /* Pods-BottomSheetView_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BottomSheetView_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		E65D2FC0B53C32113816D60505A41CA2 /* Pods-BottomSheetView_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BottomSheetView_Example-umbrella.h"; sourceTree = "<group>"; };
 		EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -566,8 +566,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
