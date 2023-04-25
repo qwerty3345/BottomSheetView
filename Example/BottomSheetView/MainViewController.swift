@@ -80,12 +80,19 @@ final class MainViewController: UIViewController {
 // MARK: - BottomSheetViewDelegate
 
 extension MainViewController: BottomSheetViewDelegate {
-  func bottomSheetView(_ bottomSheetView: BottomSheetView, willMoveTo position: BottomSheetPosition) {
-    print("✨ willMove: \(position)")
+  
+  func bottomSheetView(_ bottomSheetView: BottomSheetView,
+                       willMoveTo destination: BottomSheetPosition,
+                       from startPosition: BottomSheetPosition) {
+    print("✨ willMove: \(destination), from: \(startPosition)")
   }
-  func bottomSheetView(_ bottomSheetView: BottomSheetView, didMoveTo position: BottomSheetPosition) {
-    print("✨ didMove: \(position)")
+  
+  func bottomSheetView(_ bottomSheetView: BottomSheetView,
+                       didMoveTo destination: BottomSheetPosition,
+                       from startPosition: BottomSheetPosition) {
+    print("✨ didMove: \(destination), from: \(startPosition)")
   }
+  
 }
 
 

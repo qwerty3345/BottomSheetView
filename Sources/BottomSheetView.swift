@@ -1,8 +1,12 @@
 import UIKit
 
 public protocol BottomSheetViewDelegate {
-  func bottomSheetView(_ bottomSheetView: BottomSheetView, willMoveTo position: BottomSheetPosition)
-  func bottomSheetView(_ bottomSheetView: BottomSheetView, didMoveTo position: BottomSheetPosition)
+  func bottomSheetView(_ bottomSheetView: BottomSheetView,
+                       willMoveTo destination: BottomSheetPosition,
+                       from startPosition: BottomSheetPosition)
+  func bottomSheetView(_ bottomSheetView: BottomSheetView,
+                       didMoveTo destination: BottomSheetPosition,
+                       from startPosition: BottomSheetPosition)
 }
 
 public final class BottomSheetView: UIView {
@@ -24,7 +28,7 @@ public final class BottomSheetView: UIView {
   /// default value is `true`
   public var isTipEnabled: Bool = true
 
-  private var currentPosition: BottomSheetPosition = .half
+  public private(set) var currentPosition: BottomSheetPosition = .half
 
   private var isContentScrollViewScrolling = false
   private var capturedContentScrollViewOffsetY: CGFloat = .zero
@@ -287,6 +291,7 @@ public final class BottomSheetView: UIView {
   }
 
   public func move(to position: BottomSheetPosition) {
+    let startPosition = currentPosition
     guard let parentViewController else { return }
     contentScrollView?.isScrollEnabled = position == .full
 
@@ -313,10 +318,10 @@ public final class BottomSheetView: UIView {
       },
       completion: { [weak self] _ in
         guard let self else { return }
-        delegate?.bottomSheetView(self, didMoveTo: position)
+        delegate?.bottomSheetView(self, didMoveTo: position, from: startPosition)
       })
 
-    delegate?.bottomSheetView(self, willMoveTo: position)
+    delegate?.bottomSheetView(self, willMoveTo: position, from: startPosition)
     currentPosition = position
   }
 
