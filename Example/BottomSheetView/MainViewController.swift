@@ -75,7 +75,7 @@ final class MainViewController: UIViewController {
     let layout = BottomSheetLayout(
       full: .fractional(1.0),
       half: .fractional(0.7),
-      tip: .fractional(0.4)
+      tip: .fractional(0)
     )
     bottomSheetView.layout = layout
   }

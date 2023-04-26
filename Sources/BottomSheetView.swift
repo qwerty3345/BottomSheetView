@@ -311,7 +311,7 @@ public final class BottomSheetView: UIView {
         return topAnchor
       case .tip:
         let bottomSafeAreaInset = parentViewController.view.safeAreaInsets.bottom
-        return topAnchor + bottomSafeAreaInset - appearance.grabberHeight
+        return topAnchor - bottomSafeAreaInset - appearance.grabberContainerHeight
       }
     }()
 
