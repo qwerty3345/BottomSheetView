@@ -102,7 +102,7 @@ public final class BottomSheetView: UIView {
       grabberContainerView.topAnchor.constraint(equalTo: topAnchor),
       grabberContainerView.leadingAnchor.constraint(equalTo: leadingAnchor),
       grabberContainerView.trailingAnchor.constraint(equalTo: trailingAnchor),
-      grabberContainerView.heightAnchor.constraint(equalToConstant: appearance.grabberHeight + 24)
+      grabberContainerView.heightAnchor.constraint(equalToConstant: appearance.grabberContainerHeight)
     ])
   }
 
