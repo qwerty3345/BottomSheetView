@@ -85,7 +85,8 @@ final class MainViewController: UIViewController {
       grabberBackgroundColor: .black,
       grabberWidth: 100,
       grabberHeight: 8,
-      grabberCornerRadius: 4
+      grabberCornerRadius: 4,
+      ignoreSafeArea: [.bottom]
     )
   }
 }

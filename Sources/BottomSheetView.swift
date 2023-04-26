@@ -305,12 +305,12 @@ public final class BottomSheetView: UIView {
 
       switch position {
       case .full:
-        let topSafeAreaInset = parentViewController.view.safeAreaInsets.top
+        let topSafeAreaInset = appearance.ignoreSafeArea.contains(.top) ? 0 : parentViewController.view.safeAreaInsets.top
         return topAnchor + topSafeAreaInset
       case .half:
         return topAnchor
       case .tip:
-        let bottomSafeAreaInset = parentViewController.view.safeAreaInsets.bottom
+        let bottomSafeAreaInset = appearance.ignoreSafeArea.contains(.bottom) ? 0 : parentViewController.view.safeAreaInsets.bottom
         return topAnchor - bottomSafeAreaInset - appearance.grabberContainerHeight
       }
     }()

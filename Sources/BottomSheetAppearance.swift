@@ -25,6 +25,8 @@ public struct BottomSheetAppearance {
   /// Settings
   public var isContentScrollViewBouncingWhenScrollDown: Bool
   
+  public var ignoreSafeArea: [SafeAreaLocation]
+  
   
   // MARK: - Initializers
   
@@ -36,7 +38,8 @@ public struct BottomSheetAppearance {
     grabberHeight: CGFloat = 6,
     grabberContainerHeight: CGFloat = 30,
     grabberCornerRadius: CGFloat = 3,
-    isContentScrollViewBouncingWhenScrollDown: Bool = false
+    isContentScrollViewBouncingWhenScrollDown: Bool = false,
+    ignoreSafeArea: [SafeAreaLocation] = []
   ) {
     self.backgroundColor = backgroundColor
     self.bottomSheetCornerRadius = bottomSheetCornerRadius
@@ -46,5 +49,11 @@ public struct BottomSheetAppearance {
     self.grabberContainerHeight = grabberContainerHeight
     self.grabberCornerRadius = grabberCornerRadius
     self.isContentScrollViewBouncingWhenScrollDown = isContentScrollViewBouncingWhenScrollDown
+    self.ignoreSafeArea = ignoreSafeArea
   }
+}
+
+public enum SafeAreaLocation {
+  case top
+  case bottom
 }
