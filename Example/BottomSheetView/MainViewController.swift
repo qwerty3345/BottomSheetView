@@ -35,6 +35,13 @@ final class MainViewController: UIViewController {
     setup()
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
+      self.bottomSheetView.move(to: .absolute(50))
+    }
+  }
+  
 
   // MARK: - Private
 

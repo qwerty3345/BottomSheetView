@@ -333,6 +333,22 @@ public final class BottomSheetView: UIView {
     
     currentPosition = position
   }
+  
+  /// this method moves bottonSheetView to certain position by `BottonSheetAnchoring` like fractional, absolute position
+  ///
+  /// ** ALERT: This method does not account for the safe area. **
+  public func move(to anchor: BottomSheetAnchoring) {
+    guard let parentViewController else { return }
+    
+    let topAnchor = anchor.topAnchor(with: parentViewController)
+    topConstraint?.constant = topAnchor
+    
+    UIView.animateWithSpring(
+      animation: {
+        parentViewController.view.layoutIfNeeded()
+      }
+    )
+  }
 
 
   // MARK: - Private
