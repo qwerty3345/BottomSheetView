@@ -76,6 +76,7 @@ final class MainViewController: UIViewController {
     
     setupBottomSheetLayout()
     setupBottomSheetAppearance()
+    setupBottomSheetGrabber()
   }
   
   private func setupBottomSheetLayout() {
@@ -89,11 +90,16 @@ final class MainViewController: UIViewController {
   
   private func setupBottomSheetAppearance() {
     bottomSheetView.appearance = BottomSheetAppearance(
-      grabberBackgroundColor: .black,
-      grabberWidth: 100,
-      grabberHeight: 8,
-      grabberCornerRadius: 4,
       ignoreSafeArea: [.bottom]
+    )
+  }
+  
+  private func setupBottomSheetGrabber() {
+    bottomSheetView.grabberAppearance = BottomSheetGrabberAppearance(
+      backgroundColor: .black,
+      width: 100,
+      height: 8,
+      cornerRadius: 4
     )
   }
 }

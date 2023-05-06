@@ -15,16 +15,8 @@ public struct BottomSheetAppearance {
   public var backgroundColor: UIColor
   public var bottomSheetCornerRadius: CGFloat
 
-  /// Grabber
-  public var grabberBackgroundColor: UIColor
-  public var grabberWidth: CGFloat
-  public var grabberHeight: CGFloat
-  public var grabberContainerHeight: CGFloat
-  public var grabberCornerRadius: CGFloat
-
   /// Settings
   public var isContentScrollViewBouncingWhenScrollDown: Bool
-  
   public var ignoreSafeArea: [SafeAreaLocation]
   
   
@@ -33,21 +25,11 @@ public struct BottomSheetAppearance {
   public init(
     backgroundColor: UIColor = .white,
     bottomSheetCornerRadius: CGFloat = 20,
-    grabberBackgroundColor: UIColor = UIColor.lightGray.withAlphaComponent(0.7),
-    grabberWidth: CGFloat = 32,
-    grabberHeight: CGFloat = 6,
-    grabberContainerHeight: CGFloat = 30,
-    grabberCornerRadius: CGFloat = 3,
     isContentScrollViewBouncingWhenScrollDown: Bool = false,
     ignoreSafeArea: [SafeAreaLocation] = []
   ) {
     self.backgroundColor = backgroundColor
     self.bottomSheetCornerRadius = bottomSheetCornerRadius
-    self.grabberBackgroundColor = grabberBackgroundColor
-    self.grabberWidth = grabberWidth
-    self.grabberHeight = grabberHeight
-    self.grabberContainerHeight = grabberContainerHeight
-    self.grabberCornerRadius = grabberCornerRadius
     self.isContentScrollViewBouncingWhenScrollDown = isContentScrollViewBouncingWhenScrollDown
     self.ignoreSafeArea = ignoreSafeArea
   }

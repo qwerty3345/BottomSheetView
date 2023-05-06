@@ -27,6 +27,12 @@ public final class BottomSheetView: UIView {
       setupLayout()
     }
   }
+  public var grabberAppearance = BottomSheetGrabberAppearance() {
+    didSet {
+      setupView()
+      setupLayout()
+    }
+  }
 
   /// Sets the BottomSheet Position is enabling tip mode.
   /// If set to `false`, only two modes, full and middle, are set
@@ -102,7 +108,7 @@ public final class BottomSheetView: UIView {
       grabberContainerView.topAnchor.constraint(equalTo: topAnchor),
       grabberContainerView.leadingAnchor.constraint(equalTo: leadingAnchor),
       grabberContainerView.trailingAnchor.constraint(equalTo: trailingAnchor),
-      grabberContainerView.heightAnchor.constraint(equalToConstant: appearance.grabberContainerHeight)
+      grabberContainerView.heightAnchor.constraint(equalToConstant: grabberAppearance.containerHeight)
     ])
   }
 
@@ -117,8 +123,8 @@ public final class BottomSheetView: UIView {
     NSLayoutConstraint.activate([
       grabberView.centerXAnchor.constraint(equalTo: grabberContainerView.centerXAnchor),
       grabberView.centerYAnchor.constraint(equalTo: grabberContainerView.centerYAnchor),
-      grabberView.widthAnchor.constraint(equalToConstant: appearance.grabberWidth),
-      grabberView.heightAnchor.constraint(equalToConstant: appearance.grabberHeight)
+      grabberView.widthAnchor.constraint(equalToConstant: grabberAppearance.width),
+      grabberView.heightAnchor.constraint(equalToConstant: grabberAppearance.height)
     ])
   }
 
@@ -138,8 +144,8 @@ public final class BottomSheetView: UIView {
   }
 
   private func setupGrabberView() {
-    grabberView.backgroundColor = appearance.grabberBackgroundColor
-    grabberView.layer.cornerRadius = appearance.grabberCornerRadius
+    grabberView.backgroundColor = grabberAppearance.backgroundColor
+    grabberView.layer.cornerRadius = grabberAppearance.cornerRadius
     NSLayoutConstraint.activate([
 
     ])
@@ -311,7 +317,7 @@ public final class BottomSheetView: UIView {
         return topAnchor
       case .tip:
         let bottomSafeAreaInset = appearance.ignoreSafeArea.contains(.bottom) ? 0 : parentViewController.view.safeAreaInsets.bottom
-        return topAnchor - bottomSafeAreaInset - appearance.grabberContainerHeight
+        return topAnchor - bottomSafeAreaInset - grabberAppearance.containerHeight
       }
     }()
 

@@ -1,5 +1,5 @@
 PODS:
-  - BottomSheetView (0.1.0)
+  - BottomSheetView (0.1.4)
 
 DEPENDENCIES:
   - BottomSheetView (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  BottomSheetView: 129cfaade9b727912e6d50e337da0a3d606a8c71
+  BottomSheetView: 23d2847aef4be5ef76768ce6e9777497cf6df6e1
 
 PODFILE CHECKSUM: 475b0214b22407561ffb1f7ee9adc100b75e867c
 
