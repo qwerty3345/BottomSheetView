@@ -355,7 +355,26 @@ public final class BottomSheetView: UIView {
       }
     )
   }
-
+  
+  public func show(_ position: BottomSheetPosition? = nil) {
+    if let position = position {
+      move(to: position)
+    } else {
+      move(to: currentPosition)
+    }
+  }
+  
+  public func hide() {
+    guard let parentViewController,
+          let topConstraint else { return }
+    topConstraint.constant = parentViewController.view.frame.height
+    UIView.animateWithSpring(
+      animation: {
+        parentViewController.view.layoutIfNeeded()
+      }
+    )
+  }
+  
 
   // MARK: - Private
 
