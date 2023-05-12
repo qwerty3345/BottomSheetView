@@ -60,6 +60,8 @@ public final class BottomSheetView: UIView {
       }
     }
   }
+  
+  private var safeAreaView: UIView?
 
   private var topConstraint: NSLayoutConstraint?
   private var contentScrollView: UIScrollView?
@@ -94,6 +96,7 @@ public final class BottomSheetView: UIView {
   private func setupLayout() {
     setupGrabberContainerLayout()
     setupGrabberLayout()
+    setupSafeAreaViewLayout()
   }
 
   private func setupGrabberContainerLayout() {
@@ -126,6 +129,30 @@ public final class BottomSheetView: UIView {
       grabberView.widthAnchor.constraint(equalToConstant: grabberAppearance.width),
       grabberView.heightAnchor.constraint(equalToConstant: grabberAppearance.height)
     ])
+  }
+  
+  private func setupSafeAreaViewLayout() {
+    if appearance.fillSafeAreaWhenPositionAtFull == false { return }
+    if safeAreaView != nil { return }
+    guard let parentViewController else { return }
+    
+    DispatchQueue.main.async { [weak self] in
+      guard let self else { return }
+      let topSafeAreaSize = parentViewController.view.safeAreaInsets.top
+      
+      self.safeAreaView = UIView()
+      self.safeAreaView?.alpha = 0
+      self.safeAreaView?.backgroundColor = .white
+      
+      parentViewController.view.addSubview(self.safeAreaView!)
+      self.safeAreaView?.translatesAutoresizingMaskIntoConstraints = false
+      NSLayoutConstraint.activate([
+        self.safeAreaView!.topAnchor.constraint(equalTo: parentViewController.view.topAnchor),
+        self.safeAreaView!.leadingAnchor.constraint(equalTo: parentViewController.view.leadingAnchor),
+        self.safeAreaView!.trailingAnchor.constraint(equalTo: parentViewController.view.trailingAnchor),
+        self.safeAreaView!.heightAnchor.constraint(equalToConstant: topSafeAreaSize)
+      ])
+    }
   }
 
 
@@ -168,17 +195,21 @@ public final class BottomSheetView: UIView {
 
     switch sender.state {
     case .changed:
-      didPanBottomSheetChanged(sender,
-                               parentViewController: parentViewController,
-                               translation: translation,
-                               panVelocity: panVelocity)
+      didPanBottomSheetChanged(
+        sender,
+        parentViewController: parentViewController,
+        translation: translation,
+        panVelocity: panVelocity)
     case .ended:
-      didPanBottomSheetEnded(sender,
-                             parentViewController: parentViewController,
-                             panVelocity: panVelocity)
+      didPanBottomSheetEnded(
+        sender,
+        parentViewController: parentViewController,
+        panVelocity: panVelocity)
     default:
       break
     }
+    
+    updateSafeAreaViewAppearance()
   }
 
   private func didPanBottomSheetChanged(_ sender: UIPanGestureRecognizer,
@@ -291,7 +322,50 @@ public final class BottomSheetView: UIView {
       break
     }
   }
-
+  
+  private func updateSafeAreaViewAppearance() {
+    if appearance.fillSafeAreaWhenPositionAtFull == false { return }
+    guard let parentViewController else { return }
+    
+    let threshold: CGFloat = 44
+    let topSafeAreaSize = parentViewController.view.safeAreaInsets.top
+    
+    let alpha = 1 - (frame.minY - topSafeAreaSize) / (topSafeAreaSize + threshold)
+    if alpha >= 0 && alpha <= 1 {
+      let cornerRadius = appearance.bottomSheetCornerRadius * (1 - alpha)
+      layer.cornerRadius = cornerRadius
+      safeAreaView?.alpha = alpha
+    }
+  }
+  
+  private func updateSafeAreaView(_ position: BottomSheetPosition) {
+    if appearance.fillSafeAreaWhenPositionAtFull == false { return }
+    switch position {
+    case .full:
+      showSafeAreaView()
+    case .half:
+      hideSafeAreaView()
+    case .tip:
+      hideSafeAreaView()
+    }
+  }
+  
+  private func showSafeAreaView() {
+    if appearance.fillSafeAreaWhenPositionAtFull == false { return }
+    UIView.animate(withDuration: 0.3) {
+      self.safeAreaView?.alpha = 1
+      self.layer.cornerRadius = 0
+    }
+  }
+  
+  private func hideSafeAreaView() {
+    if appearance.fillSafeAreaWhenPositionAtFull == false { return }
+    UIView.animate(withDuration: 0.3) {
+      self.safeAreaView?.alpha = 0
+      self.layer.cornerRadius = self.appearance.bottomSheetCornerRadius
+    }
+  }
+  
 
   // MARK: - Public
 
@@ -305,6 +379,7 @@ public final class BottomSheetView: UIView {
     let startPosition = currentPosition
     guard let parentViewController else { return }
     contentScrollView?.isScrollEnabled = position == .full
+    updateSafeAreaView(position)
 
     let topAnchorWithSafeArea: CGFloat = {
       let topAnchor = layout.anchoring(of: position).topAnchor(with: parentViewController)
