@@ -324,7 +324,6 @@ public final class BottomSheetView: UIView {
   }
   
   private func updateSafeAreaViewAppearance() {
-    if appearance.fillSafeAreaWhenPositionAtFull == false { return }
     guard let parentViewController else { return }
     
     let threshold: CGFloat = 44
@@ -339,7 +338,6 @@ public final class BottomSheetView: UIView {
   }
   
   private func updateSafeAreaView(_ position: BottomSheetPosition) {
-    if appearance.fillSafeAreaWhenPositionAtFull == false { return }
     switch position {
     case .full:
       showSafeAreaView()
