@@ -44,7 +44,7 @@ extension ListViewController {
   override func collectionView(_ collectionView: UICollectionView,
                                cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ListCell.identifier, for: indexPath)
-    cell.backgroundColor = .gray
+    cell.backgroundColor = .systemGray5
     return cell
   }
 }

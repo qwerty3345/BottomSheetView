@@ -96,10 +96,10 @@ final class MainViewController: UIViewController {
   
   private func setupBottomSheetGrabber() {
     bottomSheetView.grabberAppearance = BottomSheetGrabberAppearance(
-      backgroundColor: .black,
-      width: 100,
-      height: 8,
-      cornerRadius: 4
+      backgroundColor: .black.withAlphaComponent(0.8),
+      width: 44,
+      height: 5,
+      cornerRadius: 2.5
     )
   }
 }
