@@ -413,7 +413,7 @@ public final class BottomSheetView: UIView {
     currentPosition = position
   }
   
-  /// this method moves bottonSheetView to certain position by `BottonSheetAnchoring` like fractional, absolute position
+  /// this method moves bottomSheetView to certain position by `BottonSheetAnchoring` like fractional, absolute position
   ///
   /// ** ALERT: This method does not account for the safe area. **
   public func move(to anchor: BottomSheetAnchoring) {
@@ -446,6 +446,8 @@ public final class BottomSheetView: UIView {
         parentViewController.view.layoutIfNeeded()
       }
     )
+    
+    hideSafeAreaView()
   }
   
 
