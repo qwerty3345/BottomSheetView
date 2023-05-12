@@ -35,13 +35,6 @@ final class MainViewController: UIViewController {
     setup()
   }
   
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
-      self.bottomSheetView.move(to: .absolute(50))
-    }
-  }
-  
 
   // MARK: - Private
 
@@ -89,9 +82,9 @@ final class MainViewController: UIViewController {
   }
   
   private func setupBottomSheetAppearance() {
-    bottomSheetView.appearance = BottomSheetAppearance(
-      ignoreSafeArea: [.bottom]
-    )
+    var appearance = BottomSheetAppearance()
+    appearance.fillSafeAreaWhenPositionAtFull = true
+    bottomSheetView.appearance = appearance
   }
   
   private func setupBottomSheetGrabber() {
