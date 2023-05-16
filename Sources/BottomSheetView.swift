@@ -160,6 +160,7 @@ public final class BottomSheetView: UIView {
 
   private func setupView() {
     setupBaseView()
+    setupShadow()
     setupGrabberView()
   }
 
@@ -168,6 +169,14 @@ public final class BottomSheetView: UIView {
 
     layer.cornerRadius = appearance.bottomSheetCornerRadius
     layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+  }
+  
+  private func setupShadow() {
+    layer.shadowOffset = appearance.shadowOffset ?? .zero
+    layer.shadowColor = appearance.shadowColor
+    layer.shadowPath = appearance.shadowPath
+    layer.shadowOpacity = appearance.shadowOpacity ?? .zero
+    layer.shadowRadius = appearance.shadowRadius ?? .zero
   }
 
   private func setupGrabberView() {
@@ -324,8 +333,10 @@ public final class BottomSheetView: UIView {
   }
   
   private func updateSafeAreaViewAppearance() {
+    if appearance.fillSafeAreaWhenPositionAtFull == false { return }
     guard let parentViewController else { return }
     
+    // Update corner radius
     let threshold: CGFloat = 44
     let topSafeAreaSize = parentViewController.view.safeAreaInsets.top
     
@@ -335,9 +346,15 @@ public final class BottomSheetView: UIView {
       layer.cornerRadius = cornerRadius
       safeAreaView?.alpha = alpha
     }
+    
+    // Update bottomSheet shadow
+    let shadowAlpha = 1 - alpha
+    layer.shadowOpacity = Float(shadowAlpha)
   }
   
   private func updateSafeAreaView(_ position: BottomSheetPosition) {
+    if appearance.fillSafeAreaWhenPositionAtFull == false { return }
+    
     switch position {
     case .full:
       showSafeAreaView()
@@ -353,14 +370,18 @@ public final class BottomSheetView: UIView {
     UIView.animate(withDuration: 0.3) {
       self.safeAreaView?.alpha = 1
       self.layer.cornerRadius = 0
+      self.layer.shadowOpacity = 0
     }
   }
   
   private func hideSafeAreaView() {
     if appearance.fillSafeAreaWhenPositionAtFull == false { return }
-    UIView.animate(withDuration: 0.3) {
+    let animationDuration: CGFloat = 0.3
+    
+    UIView.animate(withDuration: animationDuration) {
       self.safeAreaView?.alpha = 0
       self.layer.cornerRadius = self.appearance.bottomSheetCornerRadius
+      self.layer.shadowOpacity = self.appearance.shadowOpacity ?? .zero
     }
   }
   

@@ -84,12 +84,20 @@ final class MainViewController: UIViewController {
   private func setupBottomSheetAppearance() {
     var appearance = BottomSheetAppearance()
     appearance.fillSafeAreaWhenPositionAtFull = true
+    
+    // Shadows
+    appearance.shadowColor = UIColor.systemPink.cgColor
+    appearance.shadowOpacity = 1
+    appearance.shadowRadius = 20
+    appearance.shadowOffset = .zero
+    
     bottomSheetView.appearance = appearance
   }
   
   private func setupBottomSheetGrabber() {
     bottomSheetView.grabberAppearance = BottomSheetGrabberAppearance(
       backgroundColor: .black.withAlphaComponent(0.8),
+      
       width: 44,
       height: 5,
       cornerRadius: 2.5
