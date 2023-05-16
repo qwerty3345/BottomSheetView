@@ -113,17 +113,14 @@ extension MainViewController: BottomSheetViewDelegate {
   func bottomSheetView(_ bottomSheetView: BottomSheetView,
                        willMoveTo destination: BottomSheetPosition,
                        from startPosition: BottomSheetPosition) {
-    print("✨ willMove: \(destination), from: \(startPosition)")
-    print(bottomSheetView.layout.anchoring(of: destination).height(with: self))
-    print(bottomSheetView.layout.anchoring(of: destination).topAnchor(with: self))
-  }
+    // do something
+ }
   
   func bottomSheetView(_ bottomSheetView: BottomSheetView,
                        didMoveTo destination: BottomSheetPosition,
                        from startPosition: BottomSheetPosition) {
-    print("✨ didMove: \(destination), from: \(startPosition)")
+    // do something
   }
-  
 }
 
 

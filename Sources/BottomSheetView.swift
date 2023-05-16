@@ -1,3 +1,4 @@
+
 import UIKit
 
 @objc public protocol BottomSheetViewDelegate {
@@ -43,6 +44,7 @@ public final class BottomSheetView: UIView {
 
   private var isContentScrollViewScrolling = false
   private var capturedContentScrollViewOffsetY: CGFloat = .zero
+  private var grabberContainerViewHeightConstraint: NSLayoutConstraint?
 
 
   // MARK: - UI
@@ -107,12 +109,15 @@ public final class BottomSheetView: UIView {
       constraint.isActive = false
     }
 
+    let heightConstraint = grabberContainerView.heightAnchor.constraint(equalToConstant: grabberAppearance.containerHeight)
     NSLayoutConstraint.activate([
       grabberContainerView.topAnchor.constraint(equalTo: topAnchor),
       grabberContainerView.leadingAnchor.constraint(equalTo: leadingAnchor),
       grabberContainerView.trailingAnchor.constraint(equalTo: trailingAnchor),
-      grabberContainerView.heightAnchor.constraint(equalToConstant: grabberAppearance.containerHeight)
+      heightConstraint
     ])
+    
+    grabberContainerViewHeightConstraint = heightConstraint
   }
 
   private func setupGrabberLayout() {
@@ -336,20 +341,27 @@ public final class BottomSheetView: UIView {
     if appearance.fillSafeAreaWhenPositionAtFull == false { return }
     guard let parentViewController else { return }
     
-    // Update corner radius
     let threshold: CGFloat = 44
     let topSafeAreaSize = parentViewController.view.safeAreaInsets.top
     
-    let alpha = 1 - (frame.minY - topSafeAreaSize) / (topSafeAreaSize + threshold)
-    if alpha >= 0 && alpha <= 1 {
-      let cornerRadius = appearance.bottomSheetCornerRadius * (1 - alpha)
+    let multiplier = 1 - (frame.minY - topSafeAreaSize) / (topSafeAreaSize + threshold)
+    if multiplier >= 0 && multiplier <= 1 {
+      // Update corner radius
+      let cornerRadius = appearance.bottomSheetCornerRadius * (1 - multiplier)
       layer.cornerRadius = cornerRadius
-      safeAreaView?.alpha = alpha
+      safeAreaView?.alpha = multiplier
+      
+      // Update bottomSheet shadow
+      let shadowAlpha = 1 - multiplier
+      layer.shadowOpacity = Float(shadowAlpha)
+      
+      // Update grabber view height
+      grabberContainerViewHeightConstraint?.constant = grabberAppearance.containerHeight * (1 - multiplier)
+      grabberView.setNeedsLayout()
+      
+      // Update grabber view alpha
+      grabberContainerView.alpha = (1 - multiplier)
     }
-    
-    // Update bottomSheet shadow
-    let shadowAlpha = 1 - alpha
-    layer.shadowOpacity = Float(shadowAlpha)
   }
   
   private func updateSafeAreaView(_ position: BottomSheetPosition) {
@@ -367,10 +379,18 @@ public final class BottomSheetView: UIView {
   
   private func showSafeAreaView() {
     if appearance.fillSafeAreaWhenPositionAtFull == false { return }
-    UIView.animate(withDuration: 0.3) {
+    let animationDuration: CGFloat = 0.3
+    UIView.animate(withDuration: animationDuration) {
       self.safeAreaView?.alpha = 1
       self.layer.cornerRadius = 0
       self.layer.shadowOpacity = 0
+    }
+    
+    // Update grabber view
+    grabberContainerViewHeightConstraint?.constant = 0
+    UIView.animate(withDuration: animationDuration) {
+      self.grabberContainerView.alpha = 0
+      self.grabberContainerView.layoutIfNeeded()
     }
   }
   
@@ -383,6 +403,15 @@ public final class BottomSheetView: UIView {
       self.layer.cornerRadius = self.appearance.bottomSheetCornerRadius
       self.layer.shadowOpacity = self.appearance.shadowOpacity ?? .zero
     }
+    
+    // Update grabber view
+    grabberContainerViewHeightConstraint?.constant = grabberAppearance.containerHeight
+    UIView.animate(withDuration: animationDuration) {
+      self.grabberContainerView.alpha = 1
+      self.grabberContainerView.layoutIfNeeded()
+    }
+    
+    contentScrollView?.scrollToTop()
   }
   
 
