@@ -86,7 +86,7 @@ final class MainViewController: UIViewController {
     appearance.fillSafeAreaWhenPositionAtFull = true
     
     // Shadows
-    appearance.shadowColor = UIColor.red.cgColor
+    appearance.shadowColor = UIColor.systemPink.cgColor
     appearance.shadowOpacity = 1
     appearance.shadowRadius = 20
     appearance.shadowOffset = .zero
