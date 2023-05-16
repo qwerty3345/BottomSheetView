@@ -15,6 +15,7 @@
 		7DD303B596CCEC5FC72933DF5CCF286E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
 		86691411D23D62D492CA6D2558C0B915 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
 		8927802A2591CE4173D0186CA2BEACAC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
+		8E1C984F2A13570500CF57E5 /* UIScrollView+ScrollToTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1C984E2A13570500CF57E5 /* UIScrollView+ScrollToTop.swift */; };
 		9196745E7D38EC7C2EA87D8710B40175 /* BottomSheetView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D06A0AFC44F801AE73DA307D8D2EA187 /* BottomSheetView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9B5A0533E85746F912FDE1068CE1E929 /* BottomSheetLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A1C468BDC52A91847DD7845214D4B5 /* BottomSheetLayout.swift */; };
 		A890D23A99D6C4E43850ED73735DFE95 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0824724D2A43FA4E1A9D9D15EA0E1C07 /* BottomSheetView.swift */; };
@@ -69,6 +70,7 @@
 		673FE419D726E1F35AE9AFDF904322AE /* Pods-BottomSheetView_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BottomSheetView_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		8351E94D0B47B4FF580B89EC4C0A44D0 /* BottomSheetView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "BottomSheetView-dummy.m"; sourceTree = "<group>"; };
 		8C1D38842C959CC53C8482EAFF0674A3 /* BottomSheetPosition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BottomSheetPosition.swift; path = Sources/BottomSheetPosition.swift; sourceTree = "<group>"; };
+		8E1C984E2A13570500CF57E5 /* UIScrollView+ScrollToTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+ScrollToTop.swift"; sourceTree = "<group>"; };
 		91B52365904C1E5BC64870899B81117D /* Pods-BottomSheetView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BottomSheetView_Example.release.xcconfig"; sourceTree = "<group>"; };
 		99A1C468BDC52A91847DD7845214D4B5 /* BottomSheetLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BottomSheetLayout.swift; path = Sources/BottomSheetLayout.swift; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -222,6 +224,7 @@
 				52B53489145AF5A09640BB677CA612B1 /* UIView+HeightWithoutSafeAreas.swift.swift */,
 				43FF21B95A20BF5766CA9ABFD69AD324 /* UIView+SpringAnimation.swift */,
 				3E589C8A56424B04B182D9249EA65BD0 /* UIView+TypeFilter.swift */,
+				8E1C984E2A13570500CF57E5 /* UIScrollView+ScrollToTop.swift */,
 			);
 			name = Utils;
 			path = Sources/Utils;
@@ -426,6 +429,7 @@
 				5227B2882AED6225109D678DB539CF9D /* UIView+SpringAnimation.swift in Sources */,
 				B452B84B2A066C2700784A17 /* BottomSheetGrabberAppearance.swift in Sources */,
 				B6572809A211B7805342A4CA79A1C363 /* UIView+TypeFilter.swift in Sources */,
+				8E1C984F2A13570500CF57E5 /* UIScrollView+ScrollToTop.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
