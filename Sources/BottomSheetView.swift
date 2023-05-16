@@ -66,7 +66,7 @@ public final class BottomSheetView: UIView {
   private var safeAreaView: UIView?
 
   private var topConstraint: NSLayoutConstraint?
-  private var contentScrollView: UIScrollView?
+  private weak var contentScrollView: UIScrollView?
 
   private let grabberContainerView = UIView()
   private let grabberView = UIView()
@@ -419,8 +419,25 @@ public final class BottomSheetView: UIView {
 
   public func configure(parentViewController: UIViewController,
                         contentViewController: UIViewController) {
+    removeContentViewController()
+    
     self.parentViewController = parentViewController
     self.contentViewController = contentViewController
+  }
+  
+  public func removeContentViewController() {
+    guard let oldContentVC = self.contentViewController else { return }
+    
+    removeSubviews()
+    oldContentVC.view.removeSubviews()
+    
+    contentScrollView?.gestureRecognizers?.forEach {
+      contentScrollView?.removeGestureRecognizer($0)
+    }
+    
+    self.parentViewController = nil
+    self.contentScrollView = nil
+    self.contentViewController = nil
   }
 
   public func move(to position: BottomSheetPosition) {
