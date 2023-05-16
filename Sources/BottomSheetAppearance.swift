@@ -14,6 +14,13 @@ public struct BottomSheetAppearance {
   /// Bases
   public var backgroundColor: UIColor
   public var bottomSheetCornerRadius: CGFloat
+  
+  /// Shadows
+  public var shadowOffset: CGSize?
+  public var shadowColor: CGColor?
+  public var shadowPath: CGPath?
+  public var shadowOpacity: Float?
+  public var shadowRadius: CGFloat?
 
   /// Settings
   public var isContentScrollViewBouncingWhenScrollDown: Bool
