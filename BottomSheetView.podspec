@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'BottomSheetView'
-  s.version          = '0.1.6'
+  s.version          = '0.1.7'
   s.summary          = '📚Library for easy use of UIKit BottomSheet📱'
   s.swift_versions   = '5.0'
 
