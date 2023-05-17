@@ -352,7 +352,7 @@ public final class BottomSheetView: UIView {
       safeAreaView?.alpha = multiplier
       
       // Update bottomSheet shadow
-      let shadowAlpha = 1 - multiplier
+      let shadowAlpha = CGFloat(appearance.shadowOpacity ?? .zero) * (1 - multiplier)
       layer.shadowOpacity = Float(shadowAlpha)
       
       // Update grabber view height
