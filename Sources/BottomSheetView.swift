@@ -410,8 +410,6 @@ public final class BottomSheetView: UIView {
       self.grabberContainerView.alpha = 1
       self.grabberContainerView.layoutIfNeeded()
     }
-    
-    contentScrollView?.scrollToTop()
   }
   
 
