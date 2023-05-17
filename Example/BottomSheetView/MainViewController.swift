@@ -83,7 +83,7 @@ final class MainViewController: UIViewController {
   
   private func setupBottomSheetAppearance() {
     var appearance = BottomSheetAppearance()
-    appearance.fillSafeAreaWhenPositionAtFull = true
+//    appearance.fillSafeAreaWhenPositionAtFull = true
     
     // Shadows
     appearance.shadowColor = UIColor.black.cgColor
