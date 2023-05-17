@@ -34,6 +34,7 @@ public final class BottomSheetView: UIView {
       setupLayout()
     }
   }
+  private var initialPosition: BottomSheetPosition
 
   /// Sets the BottomSheet Position is enabling tip mode.
   /// If set to `false`, only two modes, full and middle, are set
@@ -74,7 +75,9 @@ public final class BottomSheetView: UIView {
 
   // MARK: - LifeCyele
 
-  public override init(frame: CGRect) {
+  public init(_ frame: CGRect = .zero,
+              initialPosition: BottomSheetPosition = .tip) {
+    self.initialPosition = initialPosition
     super.init(frame: frame)
     setup()
   }
@@ -187,9 +190,6 @@ public final class BottomSheetView: UIView {
   private func setupGrabberView() {
     grabberView.backgroundColor = grabberAppearance.backgroundColor
     grabberView.layer.cornerRadius = grabberAppearance.cornerRadius
-    NSLayoutConstraint.activate([
-
-    ])
   }
 
 
@@ -544,12 +544,10 @@ public final class BottomSheetView: UIView {
     parentViewController.view.addSubview(self)
     translatesAutoresizingMaskIntoConstraints = false
 
-    topConstraint = topAnchor.constraint(
+    let topConstraint = topAnchor.constraint(
       equalTo: parentViewController.view.topAnchor,
-      constant: layout.anchoring(of: .half).topAnchor(with: parentViewController)
-    )
-
-    guard let topConstraint else { return }
+      constant: layout.anchoring(of: .tip).topAnchor(with: parentViewController))
+    self.topConstraint = topConstraint
 
     NSLayoutConstraint.activate([
       topConstraint,
@@ -557,5 +555,10 @@ public final class BottomSheetView: UIView {
       trailingAnchor.constraint(equalTo: parentViewController.view.trailingAnchor),
       bottomAnchor.constraint(equalTo: parentViewController.view.bottomAnchor),
     ])
+    
+    DispatchQueue.main.async { [weak self] in
+      guard let self else { return }
+      self.move(to: self.initialPosition)
+    }
   }
 }
