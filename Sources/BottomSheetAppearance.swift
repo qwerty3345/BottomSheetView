@@ -25,7 +25,6 @@ public struct BottomSheetAppearance {
   /// Settings
   public var isContentScrollViewBouncingWhenScrollDown: Bool
   public var ignoreSafeArea: [SafeAreaLocation]
-  public var fillSafeAreaWhenPositionAtFull = false
   
   
   // MARK: - Initializers
