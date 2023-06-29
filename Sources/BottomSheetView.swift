@@ -1,13 +1,25 @@
 
 import UIKit
 
-@objc public protocol BottomSheetViewDelegate {
-  @objc optional func bottomSheetView(_ bottomSheetView: BottomSheetView,
+public protocol BottomSheetViewDelegate {
+  func bottomSheetView(_ bottomSheetView: BottomSheetView,
                        willMoveTo destination: BottomSheetPosition,
                        from startPosition: BottomSheetPosition)
-  @objc optional func bottomSheetView(_ bottomSheetView: BottomSheetView,
+  func bottomSheetView(_ bottomSheetView: BottomSheetView,
                        didMoveTo destination: BottomSheetPosition,
                        from startPosition: BottomSheetPosition)
+}
+
+// make delegate optioanl by default implementation
+extension BottomSheetViewDelegate {
+  func bottomSheetView(_ bottomSheetView: BottomSheetView,
+                       willMoveTo destination: BottomSheetPosition,
+                       from startPosition: BottomSheetPosition) {
+  }
+  func bottomSheetView(_ bottomSheetView: BottomSheetView,
+                       didMoveTo destination: BottomSheetPosition,
+                       from startPosition: BottomSheetPosition) {
+  }
 }
 
 public final class BottomSheetView: UIView {
@@ -470,11 +482,11 @@ public final class BottomSheetView: UIView {
       completion: { [weak self] _ in
         guard let self,
               let delegate else { return }
-        delegate.bottomSheetView?(self, didMoveTo: position, from: startPosition)
+        delegate.bottomSheetView(self, didMoveTo: position, from: startPosition)
       })
 
     if let delegate {
-      delegate.bottomSheetView?(self, willMoveTo: position, from: startPosition)
+      delegate.bottomSheetView(self, willMoveTo: position, from: startPosition)
     }
     
     currentPosition = position
