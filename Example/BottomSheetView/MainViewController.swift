@@ -23,16 +23,17 @@ final class MainViewController: UIViewController {
   private let contentViewController = ListViewController(
     collectionViewLayout: UICollectionViewFlowLayout()
   )
-//  private let contentViewController = GridViewController(
-//    collectionViewLayout: UICollectionViewFlowLayout()
-//  )
-//  private let contentViewController = UIViewController()
+  
 
   // MARK: - LifeCycle
 
   override func viewDidLoad() {
     super.viewDidLoad()
     setup()
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
   }
   
 
@@ -64,12 +65,15 @@ final class MainViewController: UIViewController {
   }
   
   private func setupBottomSheet() {
-    bottomSheetView.configure(parentViewController: self, contentViewController: contentViewController)
-    bottomSheetView.delegate = self
+    bottomSheetView.configure(
+      parentViewController: self,
+      contentViewController: contentViewController)
     
     setupBottomSheetLayout()
     setupBottomSheetAppearance()
     setupBottomSheetGrabber()
+    
+    bottomSheetView.delegate = self
   }
   
   private func setupBottomSheetLayout() {
@@ -83,13 +87,13 @@ final class MainViewController: UIViewController {
   
   private func setupBottomSheetAppearance() {
     var appearance = BottomSheetAppearance()
-    appearance.fillSafeAreaWhenPositionAtFull = true
     
     // Shadows
-    appearance.shadowColor = UIColor.systemPink.cgColor
-    appearance.shadowOpacity = 1
+    appearance.shadowColor = UIColor.black.cgColor
+    appearance.shadowOpacity = 0.1
     appearance.shadowRadius = 20
     appearance.shadowOffset = .zero
+    appearance.ignoreSafeArea = [.top]
     
     bottomSheetView.appearance = appearance
   }
