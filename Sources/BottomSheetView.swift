@@ -1,7 +1,7 @@
 
 import UIKit
 
-public protocol BottomSheetViewDelegate {
+public protocol BottomSheetViewDelegate: AnyObject {
   func bottomSheetView(_ bottomSheetView: BottomSheetView,
                        willMoveTo destination: BottomSheetPosition,
                        from startPosition: BottomSheetPosition)
@@ -26,7 +26,7 @@ public final class BottomSheetView: UIView {
 
   // MARK: - Properties
 
-  public var delegate: BottomSheetViewDelegate?
+  public weak var delegate: BottomSheetViewDelegate?
 
   public var layout = BottomSheetLayout() {
     didSet {
